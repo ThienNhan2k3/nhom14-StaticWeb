@@ -126,13 +126,5 @@
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
     crossorigin="anonymous"
   ></script>
-  <script>
-    var menu_btn = document.querySelector("#menu-btn")
-    var sidebar = document.querySelector("#sidebar")
-    var containers = document.querySelectorAll(".dynamic-container")
-    menu_btn.addEventListener("click", () => {
-        sidebar.classList.toggle("active-sidenav")
-        containers.forEach(container=>{container.classList.toggle("active-cont")})
-    })
-</script>
+  <script src="./main.js"></script>
 </html>
