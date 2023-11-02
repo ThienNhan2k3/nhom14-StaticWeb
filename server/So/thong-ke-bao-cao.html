@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/5990078b0a.js" crossorigin="anonymous"></script>
+
+    <!-- Chart JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Css -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="table.css">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+            <div class="container-fluid px-5">
+                <!-- Toggle button -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="menu-btn" >
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+              <!-- Brand -->
+              <div class="navbar-brand d-flex flex-row align-items-center" >
+                <img src="../image/logo.png" alt="Logo" width="40" height="35" class="d-inline-block align-text-top mx-2" >
+                <div class=" align-self-center" >Sở Văn hóa và Thể thao TP.Hồ Chí Minh</div>
+              </div>
+              <div class="text-center">
+
+                <button type="button" class="btn  " data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="../image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top " style="vertical-align:middle;">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><button class="dropdown-item" type="button">Chỉnh sửa thông tin</button></li>
+                  <li><button class="dropdown-item" type="button">Đổi mật khẩu</button></li>
+                  <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <!-- Navbar content -->
+    <nav class="sidenavbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+      <ul class="navbar-nav d-flex flex-column w-100 ">
+          <li class="nav-item w-100 d-flex flex-row align-items-center active my-1 ">
+              <img src="../image/Folder.png" alt="" class="img-fluid mx-2 ">
+              <a href="#" class="nav-link sidenav-link active  "> Trang chủ</a>
+          </li>
+          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+            <img src="../image/Folder.png" alt="" class="img-fluid mx-2">
+            <a href="#" class="nav-link sidenav-link "> Danh sách điểm đặt quảng cáo</a>
+          </li>
+          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+            <img src="../image/Folder.png" alt="" class="img-fluid mx-2">
+            <a href="#" class="nav-link sidenav-link "> Danh sách bảng quảng cáo</a>
+          </li>
+          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+            <img src="../image/Folder.png" alt="" class="img-fluid mx-2">
+            <a href="#" class="nav-link sidenav-link ">Xử lý báo cáo</a>
+          </li>
+          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+            <img src="../image/Folder.png" alt="" class="img-fluid mx-2">
+            <a href="#" class="nav-link sidenav-link ">Cấp phép báo cáo</a>
+          </li>
+      </ul>
+  </nav>
+  <!-- Main content -->
+  <main class="dynamic-container mb-5">
+    <div class="row container-sm mt-4 justify-content-center">
+        <div class="row gx-5 justify-content-between">
+          <div class="col-lg-8 col-12 shadow">
+              <div class="row py-2 px-2 text-center">
+                  <h2>Số lượng báo cáo đã xử lý</h2>
+                  <canvas id="myChart"></canvas>
+              </div>
+          </div>
+          <div class="col-lg-3 col-12 ms-2">
+            <div class="row justify-content-between">
+              <div class="col-sm-6 col-lg-12 row mt-3 border rounded-3  px-3 py-3 shadow" style="background-color: #71DAFB;">
+                
+                <div class="report-info col-8">
+                    <p class="report-number fw-bold fs-5 text-white mb-0">2023</p>
+                    <p class="report-text fw-bold fs-5 text-white">Đã xử lý</p>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-items-center">
+                    <i class="fa-regular fa-circle-check fa-2xl" style="color: #fafafa;"></i>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-12 row mt-3 border rounded-3  px-3 py-3 shadow" style="background-color: #E2E566;">
+                <div class="report-info col-8">
+                    <p class="report-number fw-bold fs-5 text-white mb-0">2023</p>
+                    <p class="report-text fw-bold fs-5 text-white">Đang xử lý</p>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-items-center">
+                  <i class="fas fa-spinner fa-2xl" style="color: #fafafa;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row table-container border border-2 rounded-3 mt-5">
+      <h2 class="table-header">Danh sách báo cáo</h2>
+      <table class="table-body table table-striped table-responsive mb-0">
+        <thead>
+          <tr class="align-top">
+            <th scope="col align-top">Loại báo cáo</th>
+            <th scope="col">Tên người gửi</th>
+            <th scope="col">Email</th>
+            <th scope="col">Số điện thoại</th>
+            <th scope="col" colspan="2">Địa chỉ báo cáo</th>
+            <th scope="col" colspan="2">Nội dung báo cáo</th>
+            <th scope="col" style="text-align: center;">Chi tiết</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tố giác sai phạm</td>
+            <td>Nguyễn Thiện Nhân</td>
+            <td>ntnhan21@fitus.edu.vn</td>
+            <td>0123456789</td>
+            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
+            <td class="text-center">
+                <i class="fas fa-info-circle text-primary"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Tố giác sai phạm</td>
+            <td>Nguyễn Thiện Nhân</td>
+            <td>ntnhan21@fitus.edu.vn</td>
+            <td>0123456789</td>
+            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
+            <td class="text-center">
+                <i class="fas fa-info-circle text-primary"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Tố giác sai phạm</td>
+            <td>Nguyễn Thiện Nhân</td>
+            <td>ntnhan21@fitus.edu.vn</td>
+            <td>0123456789</td>
+            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
+            <td class="text-center">
+                <i class="fas fa-info-circle text-primary"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Tố giác sai phạm</td>
+            <td>Nguyễn Thiện Nhân</td>
+            <td>ntnhan21@fitus.edu.vn</td>
+            <td>0123456789</td>
+            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
+            <td class="text-center">
+                <i class="fas fa-info-circle text-primary"></i>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Tố giác sai phạm</td>
+            <td>Nguyễn Thiện Nhân</td>
+            <td>ntnhan21@fitus.edu.vn</td>
+            <td>0123456789</td>
+            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
+            <td class="text-center">
+                <i class="fas fa-info-circle text-primary"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+      </div>
+      
+    <div class="pagination-container d-flex flex-sm-row flex-column justify-content-between align-items-center py-2">
+      <p class="pagination-text mb-0">Showing <b>5</b> Out of <b>25</b></p>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination mb-0">
+          <li class="page-item"><a class="page-link text-dark fw-bold border-0" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link text-dark fw-bold border-0" href="#">1</a></li>
+          <li class="page-item"><a class="page-link text-dark fw-bold border-0" href="#">2</a></li>
+          <li class="page-item active" aria-current="page"><a class="page-link text-dark fw-bold border-0" href="#">3</a></li>
+          <li class="page-item"><a class="page-link text-dark fw-bold border-0" href="#">4</a></li>
+          <li class="page-item"><a class="page-link text-dark fw-bold border-0" href="#">5</a></li>
+          <li class="page-item"><a class="page-link text-dark fw-bold border-0" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </main> 
+  <!-- Footer -->
+  <footer class="dynamic-container" >
+    <div class="container-fluid bg-secondary text-light ps-5"  >Trở về đầu trang</div>
+    <div class="container-fluid bg-dark px-5 pt-4 text-light" data-bs-theme="dark">
+      <div class="row gx-5 justify-content-center py-3">
+        <!-- First section -->
+        <div class="col-md-2 d-flex flex-column ">
+          <p class="text-light py-2  bg-opacity-10 border-top border-bottom   border-white" >Các trang khác</p>
+          <p class="text-light">Cổng thông tin Quốc gia</p>
+          <p class="text-light">Dịch vụ công Quốc gia</p>
+        </div>
+        <!-- Second section  -->
+        <div class="col-md-4 d-flex flex-column ">
+            <p class="text-dark py-2 px-0  bg-opacity-10 border-top border-bottom   border-white" >Các trang khác</p>
+          <div class="row ps-0">
+            <div class="col-md-6">
+              <p class="text-light">Cổng thông tin Quốc Hội</p>
+              <p class="text-light">Thư viện Quốc Gia</p>
+            </div>
+            <div class="col-md-6">
+              <p class="text-light">Truyền hình Quốc Hội</p>
+              <p class="text-light">Tổng cục Dự trữ Nhà nước</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex flex-column ">
+          <p class="text-dark py-2  bg-opacity-10 border-top border-bottom   border-white" >Các trang khác</p>
+          <p class="text-light">Cổng thông tin Quốc gia</p>
+          <p class="text-light">Dịch vụ công Quốc gia</p>
+        </div>
+        <!-- Certification -->
+        <div class="col-md-4 text-md-end">
+          <img src="../image/cerf.png" alt="" class="img-fluid" >
+        </div>
+    </div>
+    <div class="row text-center"><p>
+      Bản quyền thuộc về nhóm @14 - PTUDW
+    </p></div>
+  </footer>
+
+  </body>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"
+  ></script>
+
+
+
+  <script>
+    var menu_btn = document.querySelector("#menu-btn")
+    var sidebar = document.querySelector("#sidebar")
+    var containers = document.querySelectorAll(".dynamic-container")
+    menu_btn.addEventListener("click", () => {
+        sidebar.classList.toggle("active-sidenav")
+        containers.forEach(container=>{container.classList.toggle("active-cont")})
+    });
+
+    const navBarToggler = document.querySelector(".navbar-toggler");
+      navBarToggler.addEventListener("click", (e) => {
+      navBarToggler.classList.toggle("active");
+    });
+
+    const labels = ['21/10', '22/10', '23/10', '24/10', '25/10', '26/10', '27/10', '28/10'];
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: "Số lượng báo cáo đã xử lý",
+            data: [0, 40, 20, 60, 40, 100, 20, 120],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1,
+            borderColor: [
+                "rgba(113, 218, 251, 1)",
+            ],
+            backgroundColor: (context) => {
+                if (!context.chart.chartArea) {
+                    return;
+                }
+                console.log(context.chart.chartArea);
+                const { ctx, data} = context.chart;
+                const {top, bottom} = context.chart.chartArea;
+                const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+                
+                for (let i = 0; i <= 1; i += 0.1) {
+                    gradientBg.addColorStop(i, `rgba(113, 218, 251, ${1 - i})`);
+                }
+
+                return gradientBg;
+            },
+            fill: true
+
+        }],
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+    };
+
+    const canvasElement = document.getElementById("myChart");
+    new Chart(canvasElement, config);
+
+
+</script>
+</html>
