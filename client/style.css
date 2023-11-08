@@ -1,34 +1,55 @@
-nav {
+header nav {
     height: 4rem;
+    z-index: 10;
 }
 
 main {
     height: calc(100vh - 4rem);
-    background-color: lightgray;
-    border-radius: 16px;
-    position: relative;
+    overflow: hidden;
 }
 
-#map-details-panel {
+#map-control-buttons {
     position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 300px;
+    top: 16px;
+    right: 16px;
 }
 
-#map-details-panel > * {
-    margin: auto;
-    background-color: antiquewhite;
-    height: 50%;
-    padding: 1rem;
+#map-view-button {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    overflow: visible;
 }
 
-#map-details-panel
-
-.details-panel-item {
-    background-color: blue;
-    padding: 1rem;
+#map-view-button button {
     border-radius: 8px;
-    height: 100%;
+}
+
+#map-details {
+    overflow-y: scroll;
+}
+
+.btn-map {
+    opacity: 90%;
+}
+
+.btn-map:not(:first-child) {
+    border-top: 1px solid gray;
+}
+
+.btn-black-outline {
+    border-radius: 8px;
+    border: 2px solid rgba(34, 34, 34, 0.1);
+    overflow: hidden;
+}
+
+.details-info {
+    font-weight: bold;
+}
+
+.btn-icon {
+    border: none;
+    width: 32px;
+    height: 32px;
+    background-color: white;
 }
