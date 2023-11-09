@@ -7,7 +7,11 @@ main {
     height: calc(100vh - 4rem);
     overflow: hidden;
 }
-
+#mapbox{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
 #map-control-buttons {
     position: absolute;
     top: 16px;
