@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+          <div class="container-fluid px-5">
+              <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="menu-btn" >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Brand -->
+            <div class="navbar-brand d-flex flex-row align-items-center" >
+              <img src="./image/logo.png" alt="Logo" width="40" height="35" class="d-inline-block align-text-top mx-2" >
+              <div class=" align-self-center brand" >Sở Văn hóa và Thể thao TP.Hồ Chí Minh</div>
+            </div>
+            <div class="text-center">
+
+              <button type="button" class="btn  " data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="./image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top " style="vertical-align:middle;">
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a href="./cap-nhat-tt.html" class="dropdown-item" type="button">Chỉnh sửa thông tin</a></li>
+                <li><a href="./cap-nhat-mk.html" class="dropdown-item" type="button">Đổi mật khẩu</a></li>
+                <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+  </header>
+  <!-- Navbar content -->
+  <nav class="sidenavbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+    <ul class="navbar-nav d-flex flex-column w-100 ">
+        <li class="nav-item w-100 d-flex flex-row align-items-center  my-1 ">
+            <img src="./image/Folder.png" alt="" class="img-fluid mx-2 ">
+            <a href="./index.html" class="nav-link sidenav-link active  ">Trang chủ</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./ds-diem-dat.html" class="nav-link sidenav-link ">Danh sách điểm đặt quảng cáo</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./ds-qc.html" class="nav-link sidenav-link ">Danh sách bảng quảng cáo</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center active my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./ds-bao-cao.html" class="nav-link sidenav-link  ">Xử lý báo cáo</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="#" class="nav-link sidenav-link " data-bs-toggle="modal" data-bs-target="#permissionReport">Cấp phép báo cáo</a>
+        </li>
+    </ul>
+  </nav>
+  <!-- Main content -->
+  <main class="dynamic-container">
+    <div class="container-fluid pt-4 pe-4 text-center ">
+        <div class="row justify-content-center table-responsive">
+            <div class="container row bg-secondary text-white ">
+                <div class="col text-center">
+                    <p class="fs-2 text-center py-2 m-0">
+                        Danh sách báo cáo của người dân
+                    </p> 
+            </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                
+                  <tr>
+                    <th scope="col">Thời gian gửi</th>
+                    <th scope="col">Tên người gửi</th>
+                    <th scope="col">Địa điểm</th>
+                    <th scope="col">Loại hình báo cáo</th>
+                    <th scope="col">Chức năng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>16/10/2023</td>
+                    <td>Nguyễn Khánh Hoàng</td>
+                    <td>Hồ Chí Minh</td>
+                    <td>Báo cáo vi phạm</td>
+                    <td>
+                        <a href="./xl-bao-cao.html"><img src="image/edit.png" alt="" width="35"></a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>16/10/2023</td>
+                    <td>Nguyễn Khánh Hoàng</td>
+                    <td>Hồ Chí Minh</td>
+                    <td>Báo cáo vi phạm</td>
+                    <td>
+                        <a href="./xl-bao-cao.html"><img src="image/edit.png" alt="" width="35"></a>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+        <!-- Table pagination -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+        
+    </div>
+  </main> 
+  <!-- Footer -->
+  <footer class="dynamic-container" >
+    <div class="container-fluid bg-secondary text-light ps-5"  >Trở về đầu trang</div>
+    <div class="container-fluid bg-dark px-5 pt-4 text-light" data-bs-theme="dark">
+      <div class="row gx-5 justify-content-center py-3">
+        <!-- First section -->
+        <div class="col-md-2 d-flex flex-column ">
+          <p class="text-light py-2  bg-opacity-10 border-top border-bottom   border-white" >Các trang khác</p>
+          <p class="text-light">Cổng thông tin Quốc gia</p>
+          <p class="text-light">Dịch vụ công Quốc gia</p>
+        </div>
+        <!-- Second section  -->
+        <div class="col-md-4 d-flex flex-column ">
+            <p class="text-dark py-2 px-0  bg-opacity-10 border-top border-bottom   border-white" >Các trang khác</p>
+          <div class="row ps-0">
+            <div class="col-md-6">
+              <p class="text-light">Cổng thông tin Quốc Hội</p>
+              <p class="text-light">Thư viện Quốc Gia</p>
+            </div>
+            <div class="col-md-6">
+              <p class="text-light">Truyền hình Quốc Hội</p>
+              <p class="text-light">Tổng cục Dự trữ Nhà nước</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex flex-column ">
+          <p class="text-dark py-2  bg-opacity-10 border-top border-bottom   border-white" >Các trang khác</p>
+          <p class="text-light">Cổng thông tin Quốc gia</p>
+          <p class="text-light">Dịch vụ công Quốc gia</p>
+        </div>
+        <!-- Certification -->
+        <div class="col-md-4 text-md-end">
+          <img src="./image/cerf.png" alt="" class="img-fluid" >
+        </div>
+    </div>
+    <div class="row text-center">
+      <p>
+      Bản quyền thuộc về nhóm @14 - PTUDW
+      </p>
+    </div>
+  </footer>
+
+  <!-- Permisson report form -->
+  <div class="modal fade" id="permissionReport" aria-hidden="true" aria-labelledby="permissionReport" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="container d-flex flex-column align-items-center">
+            <h1 class="modal-title fs-5" id="permissionReport">Yêu cầu cấp phép quảng cáo</h1>
+            <p class="modal-title">Bước 1/2</p>
+          </div>
+          <div class="align-self-start">
+            <button type="button align-self-start" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          </div>
+        </div>
+        <div class="modal-body">
+          <!-- Body 1 -->
+            <form action="">
+              <!-- First row -->
+              <div class="row">
+                <div class="col ">
+                  <div class="form-floating">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                      <option selected>Loại bảng quảng cáo</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Works with selects</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="15x15">
+                    <label for="floatingInput">Kích thước</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="15x15">
+                    <label for="floatingInput">Vị trí</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Hình thức quảng cáo</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Nội dung quảng cáo</label>
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Hình ảnh</label>
+                    <input class="form-control" type="file" id="formFile">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-target="#permissionReport-sub" data-bs-toggle="modal">Tiếp theo</button>
+        </div>
+      </div>
+        </div>
+  </div>
+  <div class="modal fade" id="permissionReport-sub" aria-hidden="true" aria-labelledby="permissionReport-sub" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="container d-flex flex-column align-items-center">
+            <h1 class="modal-title fs-5" id="permissionReport">Yêu cầu cấp phép quảng cáo</h1>
+            <p class="modal-title">Bước 2/2</p>
+          </div>
+          <div class="align-self-start">
+            <button type="button align-self-start" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+          </div>
+        </div>
+        <div class="modal-body justify-content-center">
+          <form action="" class="text-center">
+            <div class="row">
+              <div class="col">
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <label for="floatingInput">Tên công ty đăng ký quảng cáo</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <label for="floatingInput">Email</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">+84</span>
+                  <input type="text" class="form-control" placeholder="Số điện thoại" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-floating mb-3">
+                  <input type="date" class="form-control" id="floatingInput" placeholder="Từ">
+                  <label for="floatingInput">Ngày bắt đầu hợp đồng</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-floating mb-3">
+                  <input type="date" class="form-control" id="floatingInput" placeholder="Đến">
+                  <label for="floatingInput">Ngày kết thúc hợp đồng</label>
+                </div>
+              </div>
+            </div>
+            <button type="submit " class="btn btn-success container-fluid">Gửi yêu cầu</button>
+          </form>
+        </div>
+        <div class="modal-footer justify-content-start">
+          <button class="btn btn-primary" data-bs-target="#permissionReport" data-bs-toggle="modal">Về trước</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    var menu_btn = document.querySelector("#menu-btn")
+    var sidebar = document.querySelector("#sidebar")
+    var containers = document.querySelectorAll(".dynamic-container")
+    menu_btn.addEventListener("click", () => {
+        sidebar.classList.toggle("active-sidenav")
+        containers.forEach(container=>{container.classList.toggle("active-cont")})
+    })
+</script>
+</html>
