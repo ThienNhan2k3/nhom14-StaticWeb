@@ -11,6 +11,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+  <!-- DataTable -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/plug-ins/1.13.7/features/pageResize/dataTables.pageResize.min.js">
 </head>
 
 <body class="bg-light text-dark">
@@ -42,35 +50,12 @@
   </header>
   <main class="bg-light py-3 px-lg-4 px-sm-1">
     <!-- Tab panes -->
-    <div class="tab-content h-100">
+    <div class="tab-content h-100 pb-3">
       <div class="tab-pane mx-auto active border-2 p-0 h-100" id="map" role="tabpanel" aria-labelledby="map-tab">
-        <div class="container-fluid h-100 pb-3">
+        <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col h-100 position-relative shadow px-0" id="map-view">
-                    <img class="h-100 w-100" src="img/map.jpg" alt="">
-                    <div class="btn-toolbar d-flex flex-column" role="toolbar" aria-label="Toolbar with button groups" id="map-control-buttons">
-                        <div class="btn-group-vertical btn-black-outline mb-2" role="group" aria-label="First group">
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-maximize"></i>
-                          </button>
-                        </div>
-                        <div class="btn-group-vertical btn-black-outline mb-2" role="group" aria-label="Second group">
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-plus"></i>
-                          </button>
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-minus"></i>
-                          </button>
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-compass"></i>
-                          </button>
-                        </div>
-                        <div class="btn-group-vertical btn-black-outline" role="group" aria-label="Third group">
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-location-crosshairs"></i>
-                          </button>
-                        </div>
-                      </div>
+                    <div id="map-api"></div>
                       <div class="dropup btn-black-outline" id="map-view-button">
                         <button class="btn-map btn-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                           <i class="fa-solid fa-eye"></i>
@@ -111,7 +96,11 @@
                     <p>Đã chọn 1 điểm đặt quảng cáo</p>
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title" id="board-title">Trụ, cụm pano</h4>
+                          <span class="text-muted">#ID: 123</span>
+                            <h4 class="card-title" id="board-title">
+                              Trụ, cụm pano
+                              <span class="ms-2 badge bg-success">Đã quy hoạch</span></a>
+                            </h4>
                             <p class="card-text" id="board-address">Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1</p>
                             <p>
                                 Kích thước: <span class="details-info" id="board-size">2.5m x 10m</span> <br>
@@ -150,8 +139,121 @@
             </div>
         </div>
       </div>
-      <div class="tab-pane" id="report" role="tabpanel" aria-labelledby="report-tab"> profile </div>
-      <div class="tab-pane" id="about-us" role="tabpanel" aria-labelledby="about-us-tab"> messages </div>
+      <div class="tab-pane h-100" id="report" role="tabpanel" aria-labelledby="report-tab">
+        <div class="row h-100">
+          <div class="col-8 px-4 h-100">
+            <div class="d-flex flex-column h-100">
+              <h4>Lịch sử báo cáo vi phạm</h4>
+              <p>
+                <span>
+                  #ID: 123 
+                </span>
+                <span>
+                  Loại địa điểm: 
+                </span>
+              </p>
+              <div id="table-container" class="flex-fill">
+                <table id="myTable" class="table table-striped h-100">
+                  <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Tên người báo cáo</th>
+                          <th>Hình thức</th>
+                          <th>Ngày tạo</th>
+                          <th>Tình trạng</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>000001</td>
+                          <td>Nguyễn Văn A</td>
+                          <td>Tố giác sai phạm</td>
+                          <td>08:00 01-01-2003</td>
+                          <td class="text-secondary fw-semibold">Đang xử lý</td>
+                      </tr>
+                      <tr>
+                          <td>000002</td>
+                          <td>Nguyễn Văn B</td>
+                          <td>Đăng ký nội dung</td>
+                          <td>08:00 01-01-2003</td>
+                          <td class="text-secondary fw-semibold">Đang xử lý</td>
+                      </tr>
+                      <tr>
+                          <td>000003</td>
+                          <td>Nguyễn Văn C</td>
+                          <td>Đóng góp ý kiến</td>
+                          <td>08:00 01-01-2003</td>
+                          <td class="text-success fw-semibold">Đã xử lý xong</td>
+                      </tr>
+                      <tr>
+                          <td>000004</td>
+                          <td>Nguyễn Văn D</td>
+                          <td>Giải đáp thắc mắc</td>
+                          <td>08:00 01-01-2003</td>
+                          <td class="text-success fw-semibold">Đã xử lý xong</td>
+                      </tr>
+                  </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+          <div class="col px-4">
+            <h4>Chi tiết</h4>
+            <div class="card">
+              <div class="card-body">
+                <span class="text-muted">#ID: 123</span>
+                  <h4 class="card-title" id="report-title">
+                    Tố giác sai phạm
+                    <span class="ms-2 badge bg-secondary">Đang xử lý</span></a>
+                  </h4>
+                  <p class="card-text" id="board-address">
+                    <span class="fw-semibold">Đối tượng báo cáo: Địa điểm</span><br>
+                    Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <h6>Nội dung báo cáo</h6>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ullam hic consectetur nostrum veniam dignissimos reiciendis, nobis voluptas impedit aliquam ab quam architecto excepturi deleniti, repellendus ut vero tenetur necessitatibus!
+                  </p>
+                  <h6>Hình ảnh minh hoạ</h6>
+                </li>
+                <li class="list-group-item">
+                  <h6>Thông tin người báo cáo</h6>
+                  <p>
+                    Họ tên: <span class="fw-semibold" id="reporter-name">Nguyễn Văn A</span> <br>
+                    Địa chỉ Email: <span class="fw-semibold" id="reporter-email">123@gmail.com</span>
+                </p>
+                </li>
+              </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane h-100" id="about-us" role="tabpanel" aria-labelledby="about-us-tab">
+        <div class="d-flex h-100 justify-content-center align-items-center">
+            <div class="card mb-3" style="max-width: 640px;">
+                <div class="row g-0">
+                  <div class="col-md-4 d-flex align-items-center p-4">
+                    <img src="img/logo.png" class="img-fluid rounded-start" alt="Card title">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h4 class="card-title">Nhóm 14</h4>
+                      <h6>Phát triển ứng dụng Web - CSC13008_21KTPM4</h6>
+                      <p class="card-text">
+                        <h6>Thành viên nhóm:</h6>
+                        Nguyễn Thiện Nhân - 21127380 <br>
+                        Nguyễn Trọng Đại - 21127587 <br>
+                        Nguyễn Khánh Hoàng - 21127612 <br>
+                        Nguyễn Tấn Khiêm - 21127726 <br>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
     </div>
   </main>
   <footer>
@@ -166,6 +268,13 @@
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
   </script>
   <script src="https://kit.fontawesome.com/7e3479b07e.js" crossorigin="anonymous"></script>
+
+  <!-- DataTable -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+  <script src="app.js"></script>
 </body>
 
 </html>
