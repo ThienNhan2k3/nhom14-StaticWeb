@@ -37,10 +37,6 @@ main {
     opacity: 90%;
 }
 
-.btn-map:not(:first-child) {
-    border-top: 1px solid gray;
-}
-
 .btn-black-outline {
     border-radius: 8px;
     border: 2px solid rgba(34, 34, 34, 0.1);
@@ -56,4 +52,19 @@ main {
     width: 32px;
     height: 32px;
     background-color: white;
+}
+
+#map-api {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}
+
+div.dataTables_length {
+    display: none;
 }

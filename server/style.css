@@ -12,6 +12,12 @@ main{
     margin-top:4.5rem;
     min-height:80vh;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
 .sidenavbar {
     width: 250px;
     height: 100vh;
