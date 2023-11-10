@@ -226,6 +226,7 @@ map.on("load", () => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
+    const HTMLid = $("#board-id");
     const HTMLstatus = $("#ads-status");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
@@ -234,8 +235,9 @@ map.on("load", () => {
     const HTMLform = $("#board-form");
     const HTMLclassification = $("#board-classification");
 
+    HTMLid.innerHTML = `#ID: ${id}`;
     HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
-    HTMLtitle.innerHTML = title;
+    HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-success">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
     HTMLqty.innerHTML = qty;
@@ -338,6 +340,7 @@ map.on("load", () => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
+    const HTMLid = $("#board-id");
     const HTMLstatus = $("#ads-status");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
@@ -346,8 +349,9 @@ map.on("load", () => {
     const HTMLform = $("#board-form");
     const HTMLclassification = $("#board-classification");
 
+    HTMLid.innerHTML = `#ID: ${id}`;
     HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
-    HTMLtitle.innerHTML = title;
+    HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-warning">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
     HTMLqty.innerHTML = qty;
@@ -449,6 +453,7 @@ map.on("load", () => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
+    const HTMLid = $("#board-id");
     const HTMLstatus = $("#ads-status");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
@@ -457,8 +462,9 @@ map.on("load", () => {
     const HTMLform = $("#board-form");
     const HTMLclassification = $("#board-classification");
 
+    HTMLid.innerHTML = `#ID: ${id}`;
     HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
-    HTMLtitle.innerHTML = title;
+    HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-danger">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
     HTMLqty.innerHTML = qty;
