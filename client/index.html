@@ -53,49 +53,25 @@
                 <div class="col h-100 position-relative shadow px-0" id="map-view">
                   <!-- Map -->
                   <div id="mapbox"></div>
-                    <!-- <img class="h-100 w-100" src="img/map.jpg" alt="">
-                    <div class="btn-toolbar d-flex flex-column" role="toolbar" aria-label="Toolbar with button groups" id="map-control-buttons">
-                        <div class="btn-group-vertical btn-black-outline mb-2" role="group" aria-label="First group">
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-maximize"></i>
-                          </button>
-                        </div>
-                        <div class="btn-group-vertical btn-black-outline mb-2" role="group" aria-label="Second group">
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-plus"></i>
-                          </button>
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-minus"></i>
-                          </button>
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-compass"></i>
-                          </button>
-                        </div>
-                        <div class="btn-group-vertical btn-black-outline" role="group" aria-label="Third group">
-                          <button type="button" class="btn-map btn-icon">
-                            <i class="fa-solid fa-location-crosshairs"></i>
-                          </button>
-                        </div>
-                      </div> -->
                       <div class="dropup btn-black-outline" id="map-view-button">
                         <button class="btn-map btn-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                           <i class="fa-solid fa-eye"></i>
                         </button>
                         <ul class="dropdown-menu mb-1">
                             <li class="dropdown-item list-group-item px-3">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="firstCheckboxStretched">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="firstCheckboxStretched" checked>
                                 <label class="form-check-label stretched-link" for="firstCheckboxStretched">Các điểm QC đã quy hoạch</label>
                               </li>
                               <li class="dropdown-item list-group-item px-3">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckboxStretched">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckboxStretched" checked>
                                 <label class="form-check-label stretched-link" for="secondCheckboxStretched">Các điểm QC chưa quy hoạch</label>
                               </li>
                               <li class="dropdown-item list-group-item px-3">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="thirdCheckboxStretched">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="thirdCheckboxStretched" checked>
                                 <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Các điểm QC bị vi phạm</label>
                               </li>
                               <li class="dropdown-item list-group-item px-3">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="forthCheckboxStretched">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="forthCheckboxStretched" checked>
                                 <label class="form-check-label stretched-link" for="forthCheckboxStretched">Báo cáo vi phạm</label>
                               </li>
                         </ul>
@@ -106,24 +82,26 @@
                     <form class="form-inline">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">
-                                <i class="fa-solid fa-magnifying-glass-location"></i>
+                                <button style="border:0" id="search-button">
+                                  <i class="fa-solid fa-magnifying-glass-location"></i>
+                                </button>
                             </span>
-                          <input type="text" class="form-control" placeholder="Nhập địa điểm" aria-label="Username" aria-describedby="basic-addon1">
+                          <input type="text" class="form-control" placeholder="Nhập địa điểm" aria-label="Username" aria-describedby="basic-addon1" id="location-input">
                         </div>
                       </form>
-                    <h6 class="mt-2">Chưa có dữ liệu</h6>
-                    <p>Vui lòng chọn điểm trên bảng đồ để xem!</p>
+                    <h6 class="mt-2" id="location-name">Chưa có dữ liệu</h6>
+                    <p id="location-address">Vui lòng chọn điểm trên bảng đồ để xem!</p>
                     <h4 class="mt-4">Thông tin bảng QC</h4>
-                    <p>Đã chọn 1 điểm đặt quảng cáo</p>
+                    <p id="ads-status">Chưa chọn điểm đặt quảng cáo</p>
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title" id="board-title">Trụ, cụm pano</h4>
-                            <p class="card-text" id="board-address">Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1</p>
+                            <h4 class="card-title" id="board-title"></h4>
+                            <p class="card-text" id="board-address"></p>
                             <p>
-                                Kích thước: <span class="details-info" id="board-size">2.5m x 10m</span> <br>
-                                Số lượng: <span class="details-info" id="board-quantity">1 trụ/bảng</span> <br>
-                                Hình thức: <span class="details-info" id="board-form">Cổ động chính trị</span> <br>
-                                Phân loại: <span class="details-info" id="board-classification">Đất công/Công viên/Hành lang an toàn giao thông</span> <br>
+                                Kích thước: <span class="details-info" id="board-size">Chưa có thông tin</span> <br>
+                                Số lượng: <span class="details-info" id="board-quantity">Chưa có thông tin</span> <br>
+                                Hình thức: <span class="details-info" id="board-form">Chưa có thông tin</span> <br>
+                                Phân loại: <span class="details-info" id="board-classification">Chưa có thông tin</span> <br>
                             </p>
                             <div class="d-flex justify-content-between">
                                 <button class="btn-icon fs-3" type="button">
