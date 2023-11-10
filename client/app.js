@@ -22,8 +22,6 @@ document.querySelector('#button').addEventListener('click', function () {
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYm9vbnJlYWwiLCJhIjoiY2xvOWZ0eXQ2MDljNzJybXRvaW1oaXR3NyJ9.iu4mRTZ3mUFb7ggRtyPcWw';
 
-mapboxgl.accessToken = ''
-
 const map = new mapboxgl.Map({
     container: 'map-api', // container ID
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
