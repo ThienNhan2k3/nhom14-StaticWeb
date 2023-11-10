@@ -16,9 +16,9 @@ table.on('click', 'tbody tr', (e) => {
     }
 });
  
-document.querySelector('#button').addEventListener('click', function () {
+/*document.querySelector('#button').addEventListener('click', function () {
     table.row('.selected').remove().draw(false);
-});
+});*/
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYm9vbnJlYWwiLCJhIjoiY2xvOWZ0eXQ2MDljNzJybXRvaW1oaXR3NyJ9.iu4mRTZ3mUFb7ggRtyPcWw';
 
