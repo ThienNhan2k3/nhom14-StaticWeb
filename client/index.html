@@ -90,17 +90,23 @@
                           <input type="text" class="form-control" placeholder="Nhập địa điểm" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                       </form>
-                    <h6 class="mt-2">Chưa có dữ liệu</h6>
-                    <p>Vui lòng chọn điểm trên bảng đồ để xem!</p>
-                    <div class="border-bottom"></div>
+                    <h6 class="mt-2" id="location-name">Chưa có dữ liệu</h6>
+                    <p id="location-address">Vui lòng chọn điểm trên bảng đồ để xem!</p>
+                    <div class="d-flex justify-content-end">
+                      <button type="button" class="btn btn-outline-danger fw-semibold">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        BÁO CÁO VI PHẠM
+                      </button>
+                    </div>
+                    <div class="mt-3 border-bottom"></div>
                     <h4 class="mt-3">Thông tin bảng QC</h4>
-                    <p>Đã chọn 1 điểm đặt quảng cáo</p>
+                    <p>Đã chọn <span class="fw-semibold" id="number-boards-selected">1</span> điểm đặt quảng cáo</p>
                     <div class="card">
                         <div class="card-body">
-                          <span class="text-muted">#ID: 123</span>
+                          <span class="text-muted">#ID: <span class="fw-semibold" id="board-id">123</span></span>
                             <h4 class="card-title" id="board-title">
                               Trụ, cụm pano
-                              <span class="ms-2 badge bg-success">Đã quy hoạch</span></a>
+                              <span class="ms-2 badge bg-success" id="borad-status">Đã quy hoạch</span></a>
                             </h4>
                             <p class="card-text" id="board-address">Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1</p>
                             <p>
@@ -109,19 +115,20 @@
                                 Hình thức: <span class="details-info" id="board-form">Cổ động chính trị</span> <br>
                                 Phân loại: <span class="details-info" id="board-classification">Đất công/Công viên/Hành lang an toàn giao thông</span> <br>
                             </p>
-                            <img class="img-thumbnail mb-3" src="img/BangQC1.jpg" alt="">
+                            <img class="img-thumbnail mb-3" src="img/BangQC1.jpg" id="board-thumbnail" alt="">
                             <div class="d-flex justify-content-between">
-                                <button class="btn-icon fs-3" type="button">
+                                <span id="board-contract" class="btn-icon fs-3" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-title="Hợp đồng quảng cáo" data-bs-container="body" data-bs-placement="left" data-bs-content="Ngày hết hạn: 01-01-2003">
                                     <i class="fa-solid fa-circle-exclamation text-primary"></i>
-                                </button>
+                                </span>
                                 <button type="button" class="btn btn-outline-danger fw-semibold">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                    BÁO CÁO VI PHẠM</button>
+                                    BÁO CÁO VI PHẠM
+                                  </button>
                             </div>
                         </div>
                     </div>
                     <nav class="mt-3" aria-label="Page navigation">
-                      <ul class="pagination">
+                      <ul class="pagination" id="board-pagination">
                         <li class="page-item disabled">
                           <a class="page-link" href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
@@ -152,17 +159,17 @@
                     <div class="card-body">
                       <div class="row mb-2">
                         <div class="col">
-                          ID: <span class="fw-semibold">??????</span>
+                          ID: <span class="fw-semibold" id="target-id">??????</span>
                         </div>
                         <div class="col">
-                          Loại đối tượng: <span class="fw-semibold">Địa điểm</span>
+                          Loại đối tượng: <span class="fw-semibold" id="target-type">Địa điểm</span>
                         </div>
                         <div class="col-auto">
-                          Số báo cáo đã duyệt: <span class="fw-semibold">5/10</span>
+                          Số báo cáo đã duyệt: <span class="fw-semibold" id="target-no-reports">5/10</span>
                         </div>
                       </div>
                       <div>
-                        Địa chỉ: <span class="fw-semibold">Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1</span>
+                        Địa chỉ: <span class="fw-semibold" id="target-address">Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1</span>
                       </div>
                     </div>
                   </div>
@@ -224,22 +231,23 @@
             <div class="overflow-y-scroll h-100">
               <div class="card">
                 <div class="card-body">
-                  <span class="text-muted">#ID: 123</span>
-                    <h4 class="card-title" id="report-title">
+                  <span class="text-muted">#ID: <span class="fw-semibold" id="report-id">123</span></span>
+                    <h4 class="card-title" id="report-type">
                       Tố giác sai phạm
-                      <span class="ms-2 badge bg-secondary">Đang xử lý</span></a>
+                      <span class="ms-2 badge bg-secondary" id="report-status">Đang xử lý</span></a>
                     </h4>
-                    <p class="card-text" id="board-address">
-                      Ngày báo cáo: <span class="fw-semibold">08:00 01-01-2003</span>
+                    <p class="card-text">
+                      Ngày báo cáo: <span class="fw-semibold" id="report-datetime">08:00 01-01-2003</span>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
                     <h6>Nội dung báo cáo</h6>
-                    <p>
+                    <p id="report-content">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ullam hic consectetur nostrum veniam dignissimos reiciendis, nobis voluptas impedit aliquam ab quam architecto excepturi deleniti, repellendus ut vero tenetur necessitatibus!
                     </p>
                     <h6>Hình ảnh minh hoạ</h6>
-                    <img class="img-thumbnail mb-3" src="img/BangQC1.jpg" alt="">
+                    <img class="img-thumbnail mb-3" src="img/BangQC1.jpg" id="report-img-1">
+                    <img class="img-thumbnail mb-3" src="img/BangQC1.jpg" id="repport-img-2">
                   </li>
                   <li class="list-group-item">
                     <h6>Thông tin người báo cáo</h6>
@@ -291,24 +299,24 @@
         <div class="modal-body">
           <h6 class="mb-3">Vui lòng nhập thông tin chi tiết của bạn!</h6>
           <div class="mb-3">
-            <label for="validationServerUsername" class="form-label">Họ và tên</label>
+            <label for="form-reporter-name" class="form-label">Họ và tên</label>
             <div class="input-group has-validation">
-              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa-solid fa-user"></i></span>
-              <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Họ và tên" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+              <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+              <input type="text" class="form-control is-invalid" id="form-reporter-name" placeholder="Họ và tên" required>
             </div>
           </div>
           <div class="mb-3">
-            <label for="validationServerUsername" class="form-label">Số điện thoại</label>
+            <label for="form-reporter-phone" class="form-label">Số điện thoại</label>
             <div class="input-group has-validation">
-              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa-solid fa-phone"></i></span>
-              <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="SĐT" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+              <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+              <input type="text" class="form-control is-invalid" id="form-reporter-phone" placeholder="SĐT" required>
             </div>
           </div>
           <div class="mb-3">
-            <label for="validationServerUsername" class="form-label">Địa chỉ Email</label>
+            <label for="form-reporter-email" class="form-label">Địa chỉ Email</label>
             <div class="input-group has-validation">
-              <span class="input-group-text" id="inputGroupPrepend3"><i class="fa-solid fa-envelope"></i></span>
-              <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Email" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+              <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+              <input type="text" class="form-control is-invalid" id="form-reporter-email" placeholder="Email" required>
             </div>
           </div>
         </div>
@@ -328,8 +336,8 @@
         <div class="modal-body">
           <h6 class="mb-3">Vui lòng điền nội dung báo cáo!</h6>
           <div class="mb-3">
-            <label for="validationServer04" class="form-label">Hình thức báo cáo</label>
-            <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+            <label for="form-report-type" class="form-label">Hình thức báo cáo</label>
+            <select class="form-select is-invalid" id="form-report-type" required>
               <option selected disabled value="">Vui lòng chọn hình thức báo cáo!</option>
               <option value="TGSP">Tố giác sai phạm</option>
               <option value="DKND">Đăng ký nội dung</option>
@@ -338,12 +346,12 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="validationTextarea" class="form-label">Nội dung báo cáo</label>
-            <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Vui lòng nhập nội dung báo cáo." required></textarea>
+            <label for="form-report-content" class="form-label">Nội dung báo cáo</label>
+            <textarea class="form-control is-invalid" id="form-report-content" placeholder="Vui lòng nhập nội dung báo cáo." required></textarea>
           </div>
           <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Hình ảnh minh hoạ</label>
-            <input class="form-control" type="file" id="formFileMultiple" multiple name="img" accept="image/*">
+            <label for="form-report-images" class="form-label">Hình ảnh minh hoạ</label>
+            <input class="form-control" type="file" id="form-report-images" multiple name="img" accept="image/*">
           </div>
         </div>
         <div class="modal-footer">

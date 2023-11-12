@@ -20,7 +20,9 @@ table.on('click', 'tbody tr', (e) => {
     table.row('.selected').remove().draw(false);
 });*/
 
-/*
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiYm9vbnJlYWwiLCJhIjoiY2xvOWZ0eXQ2MDljNzJybXRvaW1oaXR3NyJ9.iu4mRTZ3mUFb7ggRtyPcWw';
 
 const map = new mapboxgl.Map({
@@ -33,4 +35,3 @@ const map = new mapboxgl.Map({
 
 const nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-right');
-*/
