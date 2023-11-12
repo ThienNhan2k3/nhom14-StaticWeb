@@ -36,13 +36,14 @@ sipulated.forEach((data) => {
     type: "Feature",
     properties: {
       id: data[0],
-      type: "Trụ, cụm pano",
+      title: "Trụ, cụm pano",
       location:
         "Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1",
       size: "2.5m x 10m",
       qty: "1 trụ/bảng",
       type: "Cổ động chính trị",
       categorized: "Công viên",
+      status: "Đã quy hoạch",
     },
     geometry: {
       coordinates: data,
@@ -61,13 +62,14 @@ nonSipulate.forEach((data) => {
     type: "Feature",
     properties: {
       id: data[0],
-      type: "Trụ, cụm pano",
+      title: "Trụ, cụm pano",
       location:
         "Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1",
       size: "2.5m x 10m",
       qty: "1 trụ/bảng",
       type: "Cổ động chính trị",
       categorized: "Công viên",
+      status: "Chưa quy hoạch",
     },
     geometry: {
       coordinates: data,
@@ -86,13 +88,14 @@ reported.forEach((data) => {
     type: "Feature",
     properties: {
       id: data[0],
-      type: "Trụ, cụm pano",
+      title: "Trụ, cụm pano",
       location:
         "Đồng Khởi - Nguyễn Du (Sở Văn hoá và Thể thao), Phường Bến Nghé, Quận 1",
       size: "2.5m x 10m",
       qty: "1 trụ/bảng",
       type: "Cổ động chính trị",
       categorized: "Công viên",
+      status: "Bị báo cáo",
     },
     geometry: {
       coordinates: data,
@@ -106,6 +109,7 @@ const sipulatedColor = "#40eb34";
 const nonSipulatedColor = "#d3eb34";
 const reportedColor = "#eb3434";
 const unclusteredRadius = 12;
+const $ = document.querySelector.bind(document);
 // Mapbox generation
 mapboxgl.accessToken =
   "pk.eyJ1IjoicGpsZW9uYXJkMzciLCJhIjoic2YyV2luUSJ9.lPoix24JhyR8sljAwjHg9A";
@@ -119,6 +123,7 @@ const map = new mapboxgl.Map({
 
 // Map navigation control
 map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.FullscreenControl());
 //Locate user control
 map.addControl(
   new mapboxgl.GeolocateControl({
@@ -216,6 +221,38 @@ map.on("load", () => {
         });
       });
   });
+  //Get unclustered info on click
+  map.on("click", "sipulated-unclustered", (e) => {
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+    const HTMLid = $("#board-id");
+    const HTMLstatus = $("#ads-status");
+    const HTMLtitle = $("#board-title");
+    const HTMLaddr = $("#board-address");
+    const HTMLsize = $("#board-size");
+    const HTMLqty = $("#board-quantity");
+    const HTMLform = $("#board-form");
+    const HTMLclassification = $("#board-classification");
+
+    HTMLid.innerHTML = `#ID: ${id}`;
+    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-success">${status}</span></a>`;
+    HTMLaddr.innerHTML = location;
+    HTMLsize.innerHTML = size;
+    HTMLqty.innerHTML = qty;
+    HTMLform.innerHTML = type;
+    HTMLclassification.innerHTML = categorized;
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseenter", "sipulated-cluster", () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+  map.on("mouseleave", "sipulated-cluster", () => {
+    map.getCanvas().style.cursor = "";
+  });
 
   //Non sipulated section
   map.addSource("non-sipulated", {
@@ -299,7 +336,37 @@ map.on("load", () => {
         });
       });
   });
+  map.on("click", "nonSipulated-unclustered", (e) => {
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+    const HTMLid = $("#board-id");
+    const HTMLstatus = $("#ads-status");
+    const HTMLtitle = $("#board-title");
+    const HTMLaddr = $("#board-address");
+    const HTMLsize = $("#board-size");
+    const HTMLqty = $("#board-quantity");
+    const HTMLform = $("#board-form");
+    const HTMLclassification = $("#board-classification");
 
+    HTMLid.innerHTML = `#ID: ${id}`;
+    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-warning">${status}</span></a>`;
+    HTMLaddr.innerHTML = location;
+    HTMLsize.innerHTML = size;
+    HTMLqty.innerHTML = qty;
+    HTMLform.innerHTML = type;
+    HTMLclassification.innerHTML = categorized;
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseenter", "nonSipulated-cluster", () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+  map.on("mouseleave", "nonSipulated-cluster", () => {
+    map.getCanvas().style.cursor = "";
+  });
   //Reported section
   map.addSource("reported", {
     type: "geojson",
@@ -365,8 +432,8 @@ map.on("load", () => {
       "text-color": "#f2f7f4",
     },
   });
-   //Inspect a cluster on click
-   map.on("click", "reported-cluster", (e) => {
+  //Inspect a cluster on click
+  map.on("click", "reported-cluster", (e) => {
     const features = map.queryRenderedFeatures(e.point, {
       layers: ["reported-cluster"],
     });
@@ -382,5 +449,160 @@ map.on("load", () => {
         });
       });
   });
+  map.on("click", "reported-unclustered", (e) => {
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+    const HTMLid = $("#board-id");
+    const HTMLstatus = $("#ads-status");
+    const HTMLtitle = $("#board-title");
+    const HTMLaddr = $("#board-address");
+    const HTMLsize = $("#board-size");
+    const HTMLqty = $("#board-quantity");
+    const HTMLform = $("#board-form");
+    const HTMLclassification = $("#board-classification");
 
+    HTMLid.innerHTML = `#ID: ${id}`;
+    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-danger">${status}</span></a>`;
+    HTMLaddr.innerHTML = location;
+    HTMLsize.innerHTML = size;
+    HTMLqty.innerHTML = qty;
+    HTMLform.innerHTML = type;
+    HTMLclassification.innerHTML = categorized;
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseenter", "reported-cluster", () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+  map.on("mouseleave", "reported-cluster", () => {
+    map.getCanvas().style.cursor = "";
+  });
+});
+
+//Toggle layers
+const sipulatedToggle = $("#firstCheckboxStretched");
+const nonSipulatedToggle = $("#secondCheckboxStretched");
+const reportedToggle = $("#thirdCheckboxStretched");
+
+sipulatedToggle.addEventListener("change", (e) => {
+  const layers = [
+    "sipulated-cluster",
+    "sipulated-count",
+    "sipulated-unclustered",
+    "sipulated-label",
+  ];
+  if (sipulatedToggle.checked) {
+    layers.forEach((layer) => {
+      map.setLayoutProperty(layer, "visibility", "visible");
+    });
+  } else {
+    layers.forEach((layer) => {
+      map.setLayoutProperty(layer, "visibility", "none");
+    });
+  }
+});
+
+nonSipulatedToggle.addEventListener("change", (e) => {
+  const layers = [
+    "nonSipulated-cluster",
+    "nonSipulated-count",
+    "nonSipulated-unclustered",
+    "nonSipulated-label",
+  ];
+  if (nonSipulatedToggle.checked) {
+    layers.forEach((layer) => {
+      map.setLayoutProperty(layer, "visibility", "visible");
+    });
+  } else {
+    layers.forEach((layer) => {
+      map.setLayoutProperty(layer, "visibility", "none");
+    });
+  }
+});
+
+reportedToggle.addEventListener("change", (e) => {
+  const layers = [
+    "reported-cluster",
+    "reported-count",
+    "reported-unclustered",
+    "reported-label",
+  ];
+  if (reportedToggle.checked) {
+    layers.forEach((layer) => {
+      map.setLayoutProperty(layer, "visibility", "visible");
+    });
+  } else {
+    layers.forEach((layer) => {
+      map.setLayoutProperty(layer, "visibility", "none");
+    });
+  }
+});
+
+// Reverse geo-location
+const locationInput = $("#location-input");
+const searchBtn = $("#search-button");
+
+const searchFunc = async (e) => {
+  e.preventDefault();
+
+  const apiKey = "8c7c7c956fdd4a598e2301d88cb48135";
+  const query = locationInput.value;
+  const apiUrl = "https://api.opencagedata.com/geocode/v1/json";
+  const requestUrl = `${apiUrl}?key=${apiKey}&q=${encodeURIComponent(
+    query
+  )}&pretty=1&no_annotations=1`;
+
+  const respond = await fetch(requestUrl);
+  try {
+    if (!respond.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await respond.json();
+    console.log(data);
+    const geometry = data.results[0].geometry;
+    map.flyTo({ center: geometry });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+searchBtn.addEventListener("click", searchFunc);
+locationInput.addEventListener("keypress", (e) => {
+  e.preventDefault();
+  if (e.key == "Enter") {
+    searchFunc(e);
+  }
+});
+
+//Foward geo-location
+map.on("click", async (e) => {
+  const { lat, lng } = e.lngLat;
+  const query = `${lat}+${lng}`;
+  const apiUrl = "https://api.opencagedata.com/geocode/v1/json";
+  const apiKey = "8c7c7c956fdd4a598e2301d88cb48135";
+  const requestUrl = `${apiUrl}?key=${apiKey}&q=${encodeURIComponent(
+    query
+  )}&pretty=1&no_annotations=1`;
+  const respond = await fetch(requestUrl);
+  try {
+    if (!respond.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await respond.json();
+    console.log(data.results[0].formatted);
+    let [locationName, ...locationAddr] = data.results[0].formatted.split(",");
+    locationAddr = locationAddr.join(",");
+    if (locationName === "unnamed road") {
+      locationName = "Chưa có thông tin đường trên bản đồ";
+    }
+    const HTMLlocationName = $("#location-name");
+    const HTMLlocationAddr = $("#location-address");
+    HTMLlocationName.innerHTML = locationName;
+    HTMLlocationAddr.innerHTML = locationAddr;
+  } catch (err) {
+    console.log(err);
+  }
 });

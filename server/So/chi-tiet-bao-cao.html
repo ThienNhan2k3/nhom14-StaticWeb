@@ -26,33 +26,33 @@
   <body>
     <!-- Header -->
     <header>
-        <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
-            <div class="container-fluid px-5">
-                <!-- Toggle button -->
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="menu-btn" >
-                <span></span>
-                <span></span>
-                <span></span>
-              </button>
+      <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+          <div class="container-fluid px-sm-3 px-md-5 px-2 justify-content-between">
+              <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="menu-btn" >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
 
-              <!-- Brand -->
-              <div class="navbar-brand d-flex flex-row align-items-center" >
-                <img src="../image/logo.png" alt="Logo" width="40" height="35" class="d-inline-block align-text-top mx-2" >
-                <div class=" align-self-center" >Sở Văn hóa và Thể thao TP.Hồ Chí Minh</div>
-              </div>
-              <div class="text-center">
-
-                <button type="button" class="btn  " data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="../image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top " style="vertical-align:middle;">
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><button class="dropdown-item" type="button">Chỉnh sửa thông tin</button></li>
-                  <li><button class="dropdown-item" type="button">Đổi mật khẩu</button></li>
-                  <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
-                </ul>
-              </div>
+            <!-- Brand -->
+            <div class="navbar-brand d-flex flex-row align-items-center m-0" >
+              <img src="../image/logo.png" alt="Logo" width="40" height="35" class="d-inline-block align-text-top" >
+              <div class="align-self-center ms-md-3 d-none d-sm-block fs-5" >Sở Văn hóa và Thể thao TP.Hồ Chí Minh</div>
             </div>
-          </nav>
+            <div class="text-center">
+
+              <button type="button" class="btn p-0 m-0" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top " style="vertical-align:middle;">
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><button class="dropdown-item" type="button">Chỉnh sửa thông tin</button></li>
+                <li><button class="dropdown-item" type="button">Đổi mật khẩu</button></li>
+                <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
     </header>
     <!-- Navbar content -->
     <nav class="sidenavbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
@@ -81,27 +81,27 @@
   </nav>
   <!-- Main content -->
   <main class="dynamic-container container mb-5 mt-sm-4 mt-5 justify-content-center">
-    <div id="carouselId" class="carousel slide col-12 col-md-10 col-lg-8 rounded px-0 shadow" data-bs-ride="carousel">
-      <ol class="carousel-indicators">
-          <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-          <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-      </ol>
-      <div class="carousel-inner rounded" role="listbox">
-          <div class="carousel-item active">
-              <img src="bienbao1.png" class="w-100 d-block" alt="First slide">
-          </div>
-          <div class="carousel-item">
-              <img src="bienbao2.png" class="w-100 d-block" alt="Second slide">
-          </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-      </button>
+    <div id="carouselId" class="carousel slide col-12 col-md-10 col-lg-8 rounded px-0 shadow mt-5" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+            <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+        </ol>
+        <div class="carousel-inner rounded" role="listbox">
+            <div class="carousel-item active">
+                <img src="bienbao1.png" class="w-100 d-block" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img src="bienbao2.png" class="w-100 d-block" alt="Second slide">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 
     <div class="container row mt-3">
