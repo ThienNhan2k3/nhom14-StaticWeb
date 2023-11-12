@@ -227,7 +227,7 @@ map.on("load", () => {
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
     const HTMLid = $("#board-id");
-    const HTMLstatus = $("#ads-status");
+    const HTMLstatus = $("#num-ads");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
     const HTMLsize = $("#board-size");
@@ -235,8 +235,8 @@ map.on("load", () => {
     const HTMLform = $("#board-form");
     const HTMLclassification = $("#board-classification");
 
-    HTMLid.innerHTML = `#ID: ${id}`;
-    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLid.innerHTML = ` ${id}`;
+    HTMLstatus.innerHTML = `Địa điểm này có <span class="fw-semibold" id="number-boards-selected">1</span> bảng quảng cáo`;
     HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-success">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
@@ -341,7 +341,7 @@ map.on("load", () => {
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
     const HTMLid = $("#board-id");
-    const HTMLstatus = $("#ads-status");
+    const HTMLstatus = $("#num-ads");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
     const HTMLsize = $("#board-size");
@@ -349,8 +349,8 @@ map.on("load", () => {
     const HTMLform = $("#board-form");
     const HTMLclassification = $("#board-classification");
 
-    HTMLid.innerHTML = `#ID: ${id}`;
-    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLid.innerHTML = ` ${id}`;
+    HTMLstatus.innerHTML = `Địa điểm này có <span class="fw-semibold" id="number-boards-selected">1</span> bảng quảng cáo`;
     HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-warning">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
@@ -454,7 +454,7 @@ map.on("load", () => {
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
     const HTMLid = $("#board-id");
-    const HTMLstatus = $("#ads-status");
+    const HTMLstatus = $("#num-ads");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
     const HTMLsize = $("#board-size");
@@ -463,7 +463,7 @@ map.on("load", () => {
     const HTMLclassification = $("#board-classification");
 
     HTMLid.innerHTML = `#ID: ${id}`;
-    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLstatus.innerHTML = `Địa điểm này có <span class="fw-semibold" id="number-boards-selected">1</span> bảng quảng cáo`;
     HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-danger">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
@@ -592,7 +592,7 @@ map.on("click", async (e) => {
       throw new Error("Network response was not ok");
     }
     const data = await respond.json();
-    console.log(data.results[0].formatted);
+    // console.log(data.results[0].formatted);
     let [locationName, ...locationAddr] = data.results[0].formatted.split(",");
     locationAddr = locationAddr.join(",");
     if (locationName === "unnamed road") {
