@@ -221,6 +221,29 @@ map.on("load", () => {
         });
       });
   });
+  //Get info when user moves their mouse over the unclustered layer
+  const sipulatedPopup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+  map.on("mouseenter", "sipulated-unclustered", (e) => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    sipulatedPopup.setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseleave", "sipulated-unclustered", () => {
+    map.getCanvas().style.cursor = "";
+    sipulatedPopup.remove();
+  });
   //Get unclustered info on click
   map.on("click", "sipulated-unclustered", (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
@@ -243,9 +266,6 @@ map.on("load", () => {
     HTMLqty.innerHTML = qty;
     HTMLform.innerHTML = type;
     HTMLclassification.innerHTML = categorized;
-
-    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
-    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
   });
   map.on("mouseenter", "sipulated-cluster", () => {
     map.getCanvas().style.cursor = "pointer";
@@ -336,6 +356,30 @@ map.on("load", () => {
         });
       });
   });
+  //Get info when user moves their mouse over the unclustered layer
+  const nonSipulatedPopup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+  map.on("mouseenter", "nonSipulated-unclustered", (e) => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    nonSipulatedPopup.setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseleave", "nonSipulated-unclustered", () => {
+    map.getCanvas().style.cursor = "";
+    nonSipulatedPopup.remove();
+  });
+  //Get infor onclick
   map.on("click", "nonSipulated-unclustered", (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
@@ -357,9 +401,6 @@ map.on("load", () => {
     HTMLqty.innerHTML = qty;
     HTMLform.innerHTML = type;
     HTMLclassification.innerHTML = categorized;
-
-    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
-    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
   });
   map.on("mouseenter", "nonSipulated-cluster", () => {
     map.getCanvas().style.cursor = "pointer";
@@ -449,6 +490,29 @@ map.on("load", () => {
         });
       });
   });
+  const reportedPopup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+  map.on("mouseenter", "reported-unclustered", (e) => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    reportedPopup.setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseleave", "reported-unclustered", () => {
+    map.getCanvas().style.cursor = "";
+    reportedPopup.remove();
+  });
+  // Get info on click
   map.on("click", "reported-unclustered", (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
@@ -470,9 +534,6 @@ map.on("load", () => {
     HTMLqty.innerHTML = qty;
     HTMLform.innerHTML = type;
     HTMLclassification.innerHTML = categorized;
-
-    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
-    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
   });
   map.on("mouseenter", "reported-cluster", () => {
     map.getCanvas().style.cursor = "pointer";
