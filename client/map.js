@@ -221,13 +221,36 @@ map.on("load", () => {
         });
       });
   });
+  //Get info when user moves their mouse over the unclustered layer
+  const sipulatedPopup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+  map.on("mouseenter", "sipulated-unclustered", (e) => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    sipulatedPopup.setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseleave", "sipulated-unclustered", () => {
+    map.getCanvas().style.cursor = "";
+    sipulatedPopup.remove();
+  });
   //Get unclustered info on click
   map.on("click", "sipulated-unclustered", (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
     const HTMLid = $("#board-id");
-    const HTMLstatus = $("#ads-status");
+    const HTMLstatus = $("#num-ads");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
     const HTMLsize = $("#board-size");
@@ -235,17 +258,14 @@ map.on("load", () => {
     const HTMLform = $("#board-form");
     const HTMLclassification = $("#board-classification");
 
-    HTMLid.innerHTML = `#ID: ${id}`;
-    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLid.innerHTML = ` ${id}`;
+    HTMLstatus.innerHTML = `Địa điểm này có <span class="fw-semibold" id="number-boards-selected">1</span> bảng quảng cáo`;
     HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-success">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
     HTMLqty.innerHTML = qty;
     HTMLform.innerHTML = type;
     HTMLclassification.innerHTML = categorized;
-
-    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
-    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
   });
   map.on("mouseenter", "sipulated-cluster", () => {
     map.getCanvas().style.cursor = "pointer";
@@ -336,12 +356,36 @@ map.on("load", () => {
         });
       });
   });
+  //Get info when user moves their mouse over the unclustered layer
+  const nonSipulatedPopup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+  map.on("mouseenter", "nonSipulated-unclustered", (e) => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    nonSipulatedPopup.setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseleave", "nonSipulated-unclustered", () => {
+    map.getCanvas().style.cursor = "";
+    nonSipulatedPopup.remove();
+  });
+  //Get infor onclick
   map.on("click", "nonSipulated-unclustered", (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
     const HTMLid = $("#board-id");
-    const HTMLstatus = $("#ads-status");
+    const HTMLstatus = $("#num-ads");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
     const HTMLsize = $("#board-size");
@@ -349,17 +393,14 @@ map.on("load", () => {
     const HTMLform = $("#board-form");
     const HTMLclassification = $("#board-classification");
 
-    HTMLid.innerHTML = `#ID: ${id}`;
-    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLid.innerHTML = ` ${id}`;
+    HTMLstatus.innerHTML = `Địa điểm này có <span class="fw-semibold" id="number-boards-selected">1</span> bảng quảng cáo`;
     HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-warning">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
     HTMLqty.innerHTML = qty;
     HTMLform.innerHTML = type;
     HTMLclassification.innerHTML = categorized;
-
-    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
-    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
   });
   map.on("mouseenter", "nonSipulated-cluster", () => {
     map.getCanvas().style.cursor = "pointer";
@@ -449,12 +490,35 @@ map.on("load", () => {
         });
       });
   });
+  const reportedPopup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+  map.on("mouseenter", "reported-unclustered", (e) => {
+    map.getCanvas().style.cursor = "pointer";
+
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const { id, title, location, size, qty, type, categorized, status } =
+      e.features[0].properties;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
+    reportedPopup.setLngLat(coordinates).setHTML(popupDesc).addTo(map);
+  });
+  map.on("mouseleave", "reported-unclustered", () => {
+    map.getCanvas().style.cursor = "";
+    reportedPopup.remove();
+  });
+  // Get info on click
   map.on("click", "reported-unclustered", (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const { id, title, location, size, qty, type, categorized, status } =
       e.features[0].properties;
     const HTMLid = $("#board-id");
-    const HTMLstatus = $("#ads-status");
+    const HTMLstatus = $("#num-ads");
     const HTMLtitle = $("#board-title");
     const HTMLaddr = $("#board-address");
     const HTMLsize = $("#board-size");
@@ -463,16 +527,13 @@ map.on("load", () => {
     const HTMLclassification = $("#board-classification");
 
     HTMLid.innerHTML = `#ID: ${id}`;
-    HTMLstatus.innerHTML = "Đã chọn 1 điểm đặt quảng cáo";
+    HTMLstatus.innerHTML = `Địa điểm này có <span class="fw-semibold" id="number-boards-selected">1</span> bảng quảng cáo`;
     HTMLtitle.innerHTML = `${title}<span class="ms-2 badge bg-danger">${status}</span></a>`;
     HTMLaddr.innerHTML = location;
     HTMLsize.innerHTML = size;
     HTMLqty.innerHTML = qty;
     HTMLform.innerHTML = type;
     HTMLclassification.innerHTML = categorized;
-
-    const popupDesc = `<b>${type}</b><p>${categorized}</p><p>${location}</p><h5>${status}</h5>`;
-    new mapboxgl.Popup().setLngLat(coordinates).setHTML(popupDesc).addTo(map);
   });
   map.on("mouseenter", "reported-cluster", () => {
     map.getCanvas().style.cursor = "pointer";
@@ -592,7 +653,7 @@ map.on("click", async (e) => {
       throw new Error("Network response was not ok");
     }
     const data = await respond.json();
-    console.log(data.results[0].formatted);
+    // console.log(data.results[0].formatted);
     let [locationName, ...locationAddr] = data.results[0].formatted.split(",");
     locationAddr = locationAddr.join(",");
     if (locationName === "unnamed road") {
