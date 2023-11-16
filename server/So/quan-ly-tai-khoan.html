@@ -15,7 +15,6 @@
     <script src="https://kit.fontawesome.com/5990078b0a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="table.css">
-
   </head>
   <body>
     <!-- Header -->
@@ -51,28 +50,32 @@
     <!-- Navbar content -->
     <nav class="sidenavbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
       <ul class="navbar-nav d-flex flex-column w-100 ">
-          <li class="nav-item w-100 d-flex flex-row align-items-center active my-1 ">
-              <img src="./image/Folder.png" alt="" class="img-fluid mx-2 ">
-              <a href="#" class="nav-link sidenav-link active  "> Trang chủ</a>
-          </li>
-          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-            <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
-            <a href="#" class="nav-link sidenav-link "> Danh sách điểm đặt quảng cáo</a>
-          </li>
-          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-            <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
-            <a href="#" class="nav-link sidenav-link "> Danh sách bảng quảng cáo</a>
-          </li>
-          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-            <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
-            <a href="#" class="nav-link sidenav-link ">Xử lý báo cáo</a>
-          </li>
-          <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-            <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
-            <a href="#" class="nav-link sidenav-link ">Cấp phép báo cáo</a>
-          </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center active my-1 ">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2 ">
+          <a href="./quan-ly-tai-khoan.html" class="nav-link sidenav-link active">Quản lý tài khoản</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./quan-ly-diem-quang-cao.html" class="nav-link sidenav-link "> Danh sách điểm đặt quảng cáo</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./xet-duyet-yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link "> Xét duyệt yêu cầu chỉnh sửa</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./thong-ke-bao-cao.html" class="nav-link sidenav-link ">Thống kê báo cáo</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./xet-duyet-yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link ">Xét duyệt yêu cầu đặt quảng cáo</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <a href="./xem-lai-yeu-cau-chinh-sua.html" class="nav-link sidenav-link ">Xem lại yêu cầu chỉnh sửa</a>
+        </li>
       </ul>
-  </nav>
+    </nav>
   <!-- Main content -->
   <main class="dynamic-container">
     <div class="table-container border border-2 rounded-3">
@@ -83,7 +86,7 @@
             <i class="fas fa-minus-circle" style="color: #ffffff;"></i>
             Xóa
           </button>
-          <button class="green-button px-3 py-1 rounded">
+          <button class="green-button px-3 py-1 rounded" data-bs-toggle="modal" data-bs-target="#createModal">
             <i class="fas fa-plus-circle" style="color: #ffffff;"></i>
             Thêm tài khoản
           </button>
@@ -244,27 +247,79 @@
     </div>
 
     <!-- The Create Modal -->
-    <div class="modal" id="deleteModal">
-      <div class="modal-dialog modal-dialog-centered">
+    <div class="modal" id="createModal">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
 
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Xóa tài khoản</h4>
+            <h4 class="modal-title">Tạo tài khoản</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
           <!-- Modal body -->
           <div class="modal-body">
-            Bạn có chắc chắn rằng bạn muốn xóa tài khoản này không ?
-          </div>
+            <form action="/" method="POST">
+              <fieldset class="container">
+                <div class="row">
+                  <div class="col col-6 ps-0">
+                    <div class="mb-3 form-floating">
+                      <input type="text" class="form-control" id="name" name="name" required autocomplete="true" placeholder="">
+                      <label for="name" class="mb-2">Họ và tên</label>
+                    </div>
+                  </div>
+                  <div class="col col-6 pe-0">
+                    <div class="mb-3 form-floating">
+                      <input type="text" class="form-control" id="username" name="username" required autocomplete="true" placeholder="">
+                      <label for="username" class="mb-2">Tên tài khoản</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row mb-3 form-floating">
+                  <input type="email" id="email" class="form-control" name="email" required autocomplete="true" placeholder="example@gmail.com">
+                  <label for="email" class="mb-2">Email</label>
+                </div>
+                <div class="row mb-3 form-floating">
+                  <input type="password" id="password" class="form-control" name="password" required autocomplete="true" placeholder="">
+                  <label for="password" class="mb-2">Mật khẩu</label>
+                </div>
+                <div class="row mb-3 form-floating">
+                  <input type="password" id="confirmPassword" class="form-control" name="confirmPassword" required autocomplete="true" placeholder="">
+                  <label for="confirmPassword" class="mb-2">Xác nhận mật khẩu</label>
+                </div>
+                <div class="row fw-semibold fs-4 mb-2">Phân công khu vực quản lý</div>
+                <div class="row gx-5">
+                  <div class="col col-4">
+                    <select name="ward" class="form-select" required>
+                      <option value="">Loại tài khoản</option>
+                      <option value="1">Phường</option>
+                      <option value="2">Quận</option>
+                      <option value="3">Sở</option>
+                    </select>
+                  </div>
+                  <div class="col col-4">
+                    <select name="ward" class="form-select" required>
+                      <option value="">Phường</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div class="col col-4">
+                    <select name="district" class="form-select" required>
+                      <option value="">Quận</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
 
-          <!-- Modal footer -->
-          <div class="modal-footer" style="background-color: #C4D4D6;">
-            <button type="button" class="btn gray-button" data-bs-dismiss="modal">Hủy bỏ</button>
-            <button class="btn red-button">Xóa</button>
+              <button type="submit" class="mt-4 btn btn-success w-100">Tạo tài khoản</button>
+            </form>
           </div>
-
         </div>
       </div>
     </div>

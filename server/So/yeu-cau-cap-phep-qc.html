@@ -84,40 +84,6 @@
     </nav>
   <!-- Main content -->
   <main class="dynamic-container mb-5">
-    <div class="row container-sm mt-4 justify-content-center">
-        <div class="row gx-5 justify-content-between">
-          <div class="col-lg-8 col-12 shadow">
-              <div class="row py-2 px-2 text-center">
-                  <h2>Số lượng báo cáo đã xử lý</h2>
-                  <canvas id="myChart"></canvas>
-              </div>
-          </div>
-          <div class="col-lg-3 col-12 ms-2">
-            <div class="row justify-content-between">
-              <div class="col-sm-6 col-lg-12 row mt-3 border rounded-3  px-3 py-3 shadow" style="background-color: #71DAFB;">
-                
-                <div class="report-info col-8">
-                    <p class="report-number fw-bold fs-5 text-white mb-0">2023</p>
-                    <p class="report-text fw-bold fs-5 text-white">Đã xử lý</p>
-                </div>
-                <div class="col-4 d-flex justify-content-center align-items-center">
-                    <i class="fa-regular fa-circle-check fa-2xl" style="color: #fafafa;"></i>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-12 row mt-3 border rounded-3  px-3 py-3 shadow" style="background-color: #E2E566;">
-                <div class="report-info col-8">
-                    <p class="report-number fw-bold fs-5 text-white mb-0">2023</p>
-                    <p class="report-text fw-bold fs-5 text-white">Đang xử lý</p>
-                </div>
-                <div class="col-4 d-flex justify-content-center align-items-center">
-                  <i class="fas fa-spinner fa-2xl" style="color: #fafafa;"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
     <div class="row table-container border border-2 rounded-3 mt-5">
       <h2 class="table-header">Danh sách báo cáo</h2>
       <table class="table-body table table-striped table-responsive mb-0">
@@ -273,47 +239,4 @@
 
 
   <script src="../main.js"></script>
-  <script>
-    const labels = ['21/10', '22/10', '23/10', '24/10', '25/10', '26/10', '27/10', '28/10'];
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: "Số lượng báo cáo đã xử lý",
-            data: [0, 40, 20, 60, 40, 100, 20, 120],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1,
-            borderColor: [
-                "rgba(113, 218, 251, 1)",
-            ],
-            backgroundColor: (context) => {
-                if (!context.chart.chartArea) {
-                    return;
-                }
-                console.log(context.chart.chartArea);
-                const { ctx, data} = context.chart;
-                const {top, bottom} = context.chart.chartArea;
-                const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
-                
-                for (let i = 0; i <= 1; i += 0.1) {
-                    gradientBg.addColorStop(i, `rgba(113, 218, 251, ${1 - i})`);
-                }
-
-                return gradientBg;
-            },
-            fill: true
-
-        }],
-    };
-
-    const config = {
-        type: 'line',
-        data: data,
-    };
-
-    const canvasElement = document.getElementById("myChart");
-    new Chart(canvasElement, config);
-
-
-</script>
 </html>
