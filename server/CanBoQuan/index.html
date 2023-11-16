@@ -72,7 +72,114 @@
   <!-- Main content -->
   <main class="dynamic-container map-container" >
       <!-- Map -->
-      <div id="map"></div>
+      <!-- <div id="map"></div> -->
+      <div class="tab-content h-100 pb-3">
+        <div class="tab-pane mx-auto active border-2 p-0 h-100" id="map" role="tabpanel" aria-labelledby="map-tab">
+          <div class="container-fluid h-100">
+              <div class="row h-100">
+                  <div class="col h-100 position-relative shadow px-0" id="map-view">
+  
+                    <!-- Map -->
+                    <div id="mapbox"></div>
+  
+                        <div class="dropup btn-black-outline" id="map-view-button">
+                          <button class="btn-map btn-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <i class="fa-solid fa-eye"></i>
+                          </button>
+                          <ul class="dropdown-menu mb-1">
+                              <li class="dropdown-item list-group-item px-3">
+                                  <input class="form-check-input me-2" type="checkbox" value="" id="firstCheckboxStretched" checked>
+                                  <label class="form-check-label stretched-link" for="firstCheckboxStretched">Các điểm QC đã quy hoạch</label>
+                                </li>
+                                <li class="dropdown-item list-group-item px-3">
+                                  <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckboxStretched" checked>
+                                  <label class="form-check-label stretched-link" for="secondCheckboxStretched">Các điểm QC chưa quy hoạch</label>
+                                </li>
+                                <li class="dropdown-item list-group-item px-3">
+                                  <input class="form-check-input me-2" type="checkbox" value="" id="thirdCheckboxStretched" checked>
+                                  <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Các điểm QC bị vi phạm</label>
+                                </li>
+                                <li class="dropdown-item list-group-item px-3">
+                                  <input class="form-check-input me-2" type="checkbox" value="" id="forthCheckboxStretched" checked>
+                                  <label class="form-check-label stretched-link" for="forthCheckboxStretched">Báo cáo vi phạm</label>
+                                </li>
+                          </ul>
+                        </div>
+                  </div>
+                  <div class="col-4 h-100 px-4" id="map-details">
+                      <h6>Tìm địa điểm</h6>
+                      <form class="form-inline">
+                          <div class="input-group">
+                              <span class="input-group-text" id="basic-addon1">
+                                  <button style="border:0" id="search-button">
+                                    <i class="fa-solid fa-magnifying-glass-location"></i>
+                                  </button>
+                              </span>
+                            <input type="text" class="form-control" placeholder="Nhập địa điểm" aria-label="Username" aria-describedby="basic-addon1" id="location-input">
+                          </div>
+                        </form>
+                      <h6 class="mt-2" id="location-name">Chưa có dữ liệu</h6>
+                      <p id="location-address">Vui lòng chọn điểm trên bảng đồ để xem!</p>
+                      <div class="d-flex justify-content-end">
+
+                      </div>
+                      <div class="mt-3 border-bottom"></div>
+                      <h4 class="mt-3">Thông tin bảng QC</h4>
+                      <button type="button" class="btn btn-outline-success fw-semibold toBCVP" data-bs-toggle="modal" data-bs-target="#permissionReport">
+                        <i class="fa-solid fa-triangle-exclamation" ></i>
+                        Tạo yêu cầu cấp phép trên bảng quảng cáo mới
+                      </button>
+                      <p id="num-ads"></p>
+                      <div class="card">
+                          <div class="card-body">
+                            <span class="text-muted">#ID: <span class="fw-semibold" id="board-id">123</span></span>
+                              <h4 class="card-title" id="board-title">
+                                Trụ, cụm pano
+                                <span class="ms-2 badge bg-success" id="board-status">Đã quy hoạch</span></a>
+                              </h4>
+                              <p class="card-text" id="board-address">Chưa có thông tin để hiển thị</p>
+  
+                              <p>
+                                  Kích thước: <span class="details-info" id="board-size">Chưa có thông tin</span> <br>
+                                  Số lượng: <span class="details-info" id="board-quantity">Chưa có thông tin</span> <br>
+                                  Hình thức: <span class="details-info" id="board-form">Chưa có thông tin</span> <br>
+                                  Phân loại: <span class="details-info" id="board-classification">Chưa có thông tin</span> <br>
+                              </p>
+                              <img class="img-thumbnail mb-3" src="img/BangQC1.jpg" id="board-thumbnail" alt="">
+                              <div class="d-flex justify-content-between">
+                                  <span id="board-contract" class="btn-icon fs-3" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-title="Hợp đồng quảng cáo" data-bs-container="body" data-bs-placement="left" data-bs-content="Ngày hết hạn: 01-01-2003">
+                                      <i class="fa-solid fa-circle-exclamation text-primary"></i>
+                                  </span>
+                                  <button type="button" class="btn btn-outline-success fw-semibold toBCVP" data-bs-toggle="modal" data-bs-target="#permissionReport-half">
+                                      <i class="fa-solid fa-triangle-exclamation"></i>
+                                      Tạo yêu cầu cấp phép
+                                    </button>
+                              </div>
+                          </div>
+                      </div>
+                      <nav class="mt-3" aria-label="Page navigation">
+                        <ul class="pagination" id="board-pagination">
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
   </main> 
   <!-- Footer -->
   <footer class="dynamic-container" >
@@ -116,7 +223,7 @@
     </div>
   </footer>
 
-    <!-- Permisson report form -->
+    <!-- Permisson report form with full info -->
     <div class="modal fade" id="permissionReport" aria-hidden="true" aria-labelledby="permissionReport" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -150,14 +257,6 @@
                     <div class="form-floating mb-3">
                       <input type="email" class="form-control" id="floatingInput" placeholder="15x15">
                       <label for="floatingInput">Kích thước</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <div class="form-floating mb-3">
-                      <input type="email" class="form-control" id="floatingInput" placeholder="15x15">
-                      <label for="floatingInput">Vị trí</label>
                     </div>
                   </div>
                 </div>
@@ -258,11 +357,96 @@
       </div>
     </div>
     
+
+    <!-- Permission form with half info -->
+    <div class="modal fade" id="permissionReport-half" aria-hidden="true" aria-labelledby="permissionReport-half" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container d-flex flex-column align-items-center">
+              <h1 class="modal-title fs-5" id="permissionReport-half">Yêu cầu cấp phép quảng cáo</h1>
+              <p class="modal-title">Bước 1/2</p>
+            </div>
+            <div class="align-self-start">
+              <button type="button align-self-start" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- Body 1 -->
+              <form action="">
+                <!-- First row -->
+                <div class="row">
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      <label for="floatingInput">Tên công ty đăng ký quảng cáo</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      <label for="floatingInput">Email</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">+84</span>
+                      <input type="text" class="form-control" placeholder="Số điện thoại" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="date" class="form-control" id="floatingInput" placeholder="Từ">
+                      <label for="floatingInput">Ngày bắt đầu hợp đồng</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="date" class="form-control" id="floatingInput" placeholder="Đến">
+                      <label for="floatingInput">Ngày kết thúc hợp đồng</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                      <option selected>Hình thức quảng cáo</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col">
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                      <label for="floatingTextarea2">Nội dung quảng cáo</label>
+                    </div>
+                    <div class="mb-3">
+                      <label for="formFile" class="form-label">Hình ảnh</label>
+                      <input class="form-control" type="file" id="formFile">
+                    </div>
+                  </div>
+                </div>
+                <button type="submit " class="btn btn-success container-fluid">Gửi yêu cầu</button>
+              </form>
+          </div>
+        </div>
+          </div>
+    </div>
   </body>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoiYm9vbnJlYWwiLCJhIjoiY2xvOWZ0eXQ2MDljNzJybXRvaW1oaXR3NyJ9.iu4mRTZ3mUFb7ggRtyPcWw';
   const map = new mapboxgl.Map({
-  container: 'map', // container ID
+  container: 'mapbox', // container ID
   // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
   style: 'mapbox://styles/mapbox/streets-v12', // style URL
   center: [106.569958,10.722345], // starting position [lng, lat]

@@ -68,3 +68,8 @@ main {
 div.dataTables_length {
     display: none;
 }
+
+a.nav-link.active {
+    color: #0D6EFD !important;
+    border-bottom: 3px solid #0D6EFD;
+}
