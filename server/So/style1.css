@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+}
+main {
+  margin-top: 4.5rem;
+  padding-top: 1rem;
+  min-height: 80vh;
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+.sidenavbar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  margin-left: -300px;
+  background-color: #ffffff;
+  transition: 0.4s;
+  border-right: 2px solid black;
+}
+
+.sidenav-link {
+  font-size: 1.25em;
+}
+
+.sidenav-link:active,
+.sidenav-link:focus,
+.sidenav-link:hover {
+  background-color: #ffffff26;
+}
+
+.sidedropdown-menu {
+  background-color: #ffffff;
+}
+
+.sidedropdown-item:active,
+.sidedropdown-item:focus,
+.sidedropdown-item:hover {
+  background-color: #ffffff26;
+}
+
+.dynamic-container {
+  transition: 0.4s;
+}
+.navbar-btn {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.55);
+  background-color: transparent;
+}
+
+/* for sidenavbar */
+
+.active-sidenav {
+  margin-left: 0;
+}
+
+/* for main section */
+
+.active-cont {
+  margin-left: 250px !important;
+}
+
+@media (max-width: 768px) {
+  .brand {
+    display: none;
+  }
+}
+
+#menu-btn:focus {
+  box-shadow: 0 0 0 0.25rem #7952b344;
+}
+
+.nav-item.active {
+  background-color: rgb(0, 195, 255);
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.map-container {
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.full_details {
+  width: 197px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #42e128;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: auto;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 100% */
+}
+
+.result{
+  width:100px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #42e128;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: auto;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 100% */
+}

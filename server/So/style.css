@@ -1,0 +1,404 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+}
+main {
+  margin-top: 4.5rem;
+  margin-bottom: 4.5rem;
+  min-height: 80vh;
+}
+.sidenavbar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  margin-left: -300px;
+  background-color: #ffffff;
+  transition: 0.4s;
+  border-right: 2px solid black;
+  z-index: 0;
+}
+
+#location-details {
+  width: 300px;
+  height: 100vh;
+  background-color: #ffffff;
+  transition: 0.4s;
+  border-right: 2px solid black;
+  z-index: 0;
+}
+.sidenav-link {
+  font-size: 1.25em;
+}
+
+.sidenav-link:active,
+.sidenav-link:focus,
+.sidenav-link:hover {
+  background-color: #ffffff26;
+}
+
+.sidedropdown-menu {
+  background-color: #ffffff;
+}
+
+.sidedropdown-item:active,
+.sidedropdown-item:focus,
+.sidedropdown-item:hover {
+  background-color: #ffffff26;
+}
+
+.dynamic-container {
+  transition: 0.4s;
+}
+
+/* for sidenavbar */
+
+.active-sidenav {
+  margin-left: 0;
+  /* position: fixed; */
+}
+
+/* for main section */
+
+.active-cont {
+  margin-left: 250px;
+}
+
+#menu-btn:focus {
+  box-shadow: 0 0 0 0.25rem #7952b344;
+}
+
+.nav-item.active {
+  background-color: rgb(0, 195, 255);
+}
+
+.col {
+  margin-top: 10px;
+}
+
+.dropdown-menu {
+  columns: 2;
+}
+
+.dropdown .btn {
+  border-radius: 30px;
+  gap: 10px;
+  background: #ededfe;
+  color: #3e4958;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 149.8%;
+  border: none;
+}
+
+#filter {
+  font-weight: normal; /* Loại bỏ in đậm */
+}
+
+#filter .badge {
+  font-size: 1rem; /* Đặt kích thước chữ bằng 1rem */
+}
+
+.dropdown-menu,
+.badge {
+  color: #fff; /* Màu chữ trắng */
+  padding: 10px; /* Cân chỉnh khoảng cách bên trong */
+  border-radius: 5px; /* Đường viền bo tròn */
+  width: auto; /* Đặt độ rộng tự động để lấy phần text */
+  text-align: center; /* Căn giữa nội dung */
+}
+
+#filter {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+.dropdown {
+  margin-left: 10px;
+}
+/* CSS để điều chỉnh kích thước và vị trí khi sidebar được mở */
+.active-main {
+  margin-left: 250px; /* Điều chỉnh kích thước lề bên trái cho main content */
+  transition: margin-left 0.4s ease;
+}
+
+.active-cont {
+  margin-left: 250px; /* Điều chỉnh kích thước lề bên trái cho các dynamic-container */
+  transition: margin-left 0.4s ease;
+}
+
+/* CSS để điều chỉnh kích thước và vị trí khi sidebar được mở */
+.active-main-location-details {
+  margin-right: 250px; /* Điều chỉnh kích thước lề bên trái cho main content */
+  transition: margin-right 0.4s ease;
+}
+
+/* CSS để điều chỉnh sidebar khi được mở */
+.active-sidenav {
+  width: 250px; /* Điều chỉnh kích thước của sidebar khi nó được mở */
+  transition: width 0.4s ease;
+}
+
+.property-card {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0.4rem 1.5rem rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 2rem;
+  height: fit-content;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.property-image {
+  width: 40%;
+  float: left;
+  margin-left: 5px;
+  margin-right: 15px;
+  object-fit: cover;
+  border-radius: 2rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.property-details {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.property-address {
+  font-size: 18px;
+  color: #3e4958;
+  font-family: Roboto, "Source Sans Pro";
+  font-weight: bold;
+}
+
+.property-info-labels {
+  width: calc(100% - 1.1rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.property-info-item {
+  display: flex;
+  align-items: center;
+}
+
+.property-info-item .info-value {
+  margin-left: 10px;
+}
+
+.property-actions {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.edit-button {
+  order: 1; /* Đặt edit button ở bên trái */
+}
+
+.delete-button {
+  order: 2; /* Đặt delete button ở bên phải */
+  margin-right: 10px;
+}
+
+.property-actions img {
+  width: 35px; /* Adjust the width as needed */
+  height: auto; /* This maintains the aspect ratio */
+}
+
+.delete-button {
+  margin-right: 50px;
+}
+
+.edit-button {
+  margin-left: 10px;
+}
+
+#map {
+  width: 100%; /* Sử dụng chiều rộng 100% của phần tử cha */
+  height: 1000px; /* Sử dụng chiều cao 100% của phần tử cha */
+  border-radius: 2rem;
+  margin-bottom: 10px;
+}
+
+.property-card.clicked {
+  background-color: #defcd7; /* Màu nền khi được click */
+}
+
+#location-details {
+  display: none;
+}
+
+.active-location-details #location-details {
+  display: block;
+}
+
+.active-location-details #map {
+  height: 100%;
+}
+.active-location-details #content {
+  display: grid;
+  grid-template-columns: 4fr 4fr 1fr; /* 40%, 40%, 20% */
+  transition: 0.4s;
+}
+
+@media (min-width: 768px) {
+  #content {
+    display: flex;
+  }
+
+  #content > .col {
+    flex: 1;
+  }
+
+  #location-details {
+    flex-basis: 30%; /* Adjust width as needed */
+    margin-left: 20px; /* Add margin to separate from content */
+    transition: 0.4s;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 100px; /* Khoảng cách đều ở cả hai bên */
+}
+
+.row {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.property-card {
+  border: none;
+}
+
+.location-actions {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 8px;
+  background: #ddfff2;
+}
+
+.edit-location-button {
+  order: 1; /* Đặt edit button ở bên trái */
+  height: 35px;
+  width: auto;
+  margin: 10px;
+}
+
+.delete-location-button {
+  order: 2; /* Đặt delete button ở bên phải */
+  height: 35px;
+  width: auto;
+  margin: 10px;
+}
+
+#contract-button {
+  height: 40px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 32px;
+  border: none;
+  background: var(--Blue, #2C82EF);
+  color: var(--Absolute-white, #FFF);
+  text-align: center;
+  /* Button Text */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+#modal-header {
+  height: 100px !important;
+}
+
+#modal-header {
+  height: 60px; /* Set your desired height */
+}
+
+#modal-header h1 {
+  margin-top: 10px; /* Adjust top margin if needed */
+}
+
+#submit {
+  margin-top: 30px;
+}
+
+.btn-success {
+  border: none;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.map-container {
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.full_details {
+  width: 150px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #42e128;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: auto;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 100% */
+}
+
+.result{
+  width:100px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #42e128;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-family: Inter;
+  font-size: auto;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 100% */
+}
