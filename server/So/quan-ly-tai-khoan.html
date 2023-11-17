@@ -51,27 +51,27 @@
     <nav class="sidenavbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
       <ul class="navbar-nav d-flex flex-column w-100 ">
         <li class="nav-item w-100 d-flex flex-row align-items-center active my-1 ">
-          <img src="./image/Folder.png" alt="" class="img-fluid mx-2 ">
+          <img src="../image/Folder.png" alt="" class="img-fluid mx-2 ">
           <a href="./quan-ly-tai-khoan.html" class="nav-link sidenav-link active">Quản lý tài khoản</a>
         </li>
         <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <img src="../image/signboard.png" alt="" class="img-fluid mx-2">
           <a href="./quan-ly-diem-quang-cao.html" class="nav-link sidenav-link "> Danh sách điểm đặt quảng cáo</a>
         </li>
         <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
-          <a href="./xet-duyet-yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link "> Xét duyệt yêu cầu chỉnh sửa</a>
-        </li>
-        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
-          <a href="./thong-ke-bao-cao.html" class="nav-link sidenav-link ">Thống kê báo cáo</a>
-        </li>
-        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <img src="../image/acceptReports.png" alt="" class="img-fluid mx-2">
           <a href="./xet-duyet-yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link ">Xét duyệt yêu cầu đặt quảng cáo</a>
         </li>
         <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
-          <img src="./image/Folder.png" alt="" class="img-fluid mx-2">
+          <img src="../image/report.png" alt="" class="img-fluid mx-2">
+          <a href="./thong-ke-bao-cao.html" class="nav-link sidenav-link ">Thống kê báo cáo</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="../image/edit.png" alt="" class="img-fluid mx-2">
+          <a href="./xet-duyet-yeu-cau-chinh-sua.html" class="nav-link sidenav-link "> Xét duyệt yêu cầu chỉnh sửa</a>
+        </li>
+        <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
+          <img src="../image/update.png" alt="" class="img-fluid mx-2">
           <a href="./xem-lai-yeu-cau-chinh-sua.html" class="nav-link sidenav-link ">Xem lại yêu cầu chỉnh sửa</a>
         </li>
       </ul>
@@ -96,7 +96,7 @@
         <thead>
           <tr>
             <th scope="col">
-              <input type="checkbox" name="allAccounts" id="allAccounts">
+              <input type="checkbox" name="all" id="allAccounts">
             </th>
             <th scope="col">Họ và tên</th>
             <th scope="col">Email</th>
@@ -110,7 +110,7 @@
         <tbody>
           <tr>
             <td scope="col">
-              <input type="checkbox" name="allAccounts" id="allAccounts">
+              <input type="checkbox" name="allAccounts" class="checkbox-items">
             </td>
             <td>Nguyễn Thiện Nhân</td>
             <td>ntnhan21@fitus.edu.vn</td>
@@ -120,12 +120,12 @@
             <td>Quận</td>
             <td class="function-icons text-center">
               <i class="fas fa-pen" style="color: #f29d38;"></i>
-              <i class="fas fa-trash" style="color: #EB3223;"></i>
+              <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
           <tr>
             <td scope="col">
-              <input type="checkbox" name="allAccounts" id="allAccounts">
+              <input type="checkbox" name="allAccounts" class="checkbox-items">
             </td>
             <td>Nguyễn Thiện Nhân</td>
             <td>ntnhan21@fitus.edu.vn</td>
@@ -135,12 +135,12 @@
             <td>Quận</td>
             <td class="function-icons text-center">
               <i class="fas fa-pen" style="color: #f29d38;"></i>
-              <i class="fas fa-trash" style="color: #EB3223;"></i>
+              <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
           <tr>
             <td scope="col">
-              <input type="checkbox" name="allAccounts" id="allAccounts">
+              <input type="checkbox" name="allAccounts" class="checkbox-items">
             </td>
             <td>Nguyễn Thiện Nhân</td>
             <td>ntnhan21@fitus.edu.vn</td>
@@ -150,12 +150,12 @@
             <td>Quận</td>
             <td class="function-icons text-center">
               <i class="fas fa-pen" style="color: #f29d38;"></i>
-              <i class="fas fa-trash" style="color: #EB3223;"></i>
+              <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
           <tr>
             <td scope="col">
-              <input type="checkbox" name="allAccounts" id="allAccounts">
+              <input type="checkbox" name="allAccounts" class="checkbox-items">
             </td>
             <td>Nguyễn Thiện Nhân</td>
             <td>ntnhan21@fitus.edu.vn</td>
@@ -165,7 +165,7 @@
             <td>Quận</td>
             <td class="function-icons text-center">
               <i class="fas fa-pen" style="color: #f29d38;"></i>
-              <i class="fas fa-trash" style="color: #EB3223;"></i>
+              <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
           <tr>
@@ -181,13 +181,13 @@
             <td class="function-icons text-center">
               <i class="fas fa-pen" style="color: #f29d38;"></i>
               <label for="">
-                <i class="fas fa-trash" style="color: #EB3223;"></i>
+                <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
               </label>
             </td>
           </tr>
           <tr>
             <td scope="col">
-              <input type="checkbox" name="allAccounts" id="allAccounts">
+              <input type="checkbox" name="allAccounts" class="checkbox-items">
             </td>
             <td>Nguyễn Thiện Nhân</td>
             <td>ntnhan21@fitus.edu.vn</td>
@@ -197,7 +197,7 @@
             <td>Quận</td>
             <td class="function-icons text-center">
               <i class="fas fa-pen" style="color: #f29d38;"></i>
-              <i class="fas fa-trash" style="color: #EB3223;"></i>
+              <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
         </tbody>
@@ -393,6 +393,12 @@
       Bản quyền thuộc về nhóm @14 - PTUDW
     </p></div>
   </footer>
+
+  <script>
+    document.querySelector("#allAccounts").addEventListener("click", (e) => {
+      document.querySelectorAll(".checkbox-itemss").forEach((item) => item.checked = true)
+    })
+  </script>
 
   </body>
 
