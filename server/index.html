@@ -50,16 +50,76 @@
               <div class="mb-3">
                 <label for="password" class="form-label mb-2">Mật khẩu</label>
                 <input type="password" id="password" class="form-control" name="password" required autocomplete="true">
-                <a href="/forgotPassword" id="forgotPasswordLink">Forgot password?</a>
+                <a href="./quen-mat-khau.html" id="forgotPasswordLink">Quên mật khẩu?</a>
               </div>
             </fieldset>
-            <button type="submit" class="btn btn-success w-100">Đăng nhập</button>
+            <button type="submit" class="btn btn-success w-100" id="login-button">Đăng nhập</button>
           </form>
       </div>
+
+      <div class="row mt-3" id="listOfAccounts">
+
+      </div>
     </div> 
-  
+
+
+    <script type="module">
+      const users = [
+            {
+                username: "nhan",
+                email: "nhan@gmail.com",
+                password: "nhan123",
+                role: "SO"
+            },
+            {
+                username: "hoang",
+                email: "hoang@gmail.com",
+                password: "hoang123",
+                role: "QUAN"
+            },
+            {
+                username: "khiem",
+                email: "khiem@gmail.com",
+                password: "khiem123",
+                role: "PHUONG"
+            }
+        ];
+
+        users.forEach((user) => {
+          const divElement = document.createElement("div");
+          divElement.className = "card p-4 col-12 col-sm me-2";
+          divElement.innerHTML = `
+            <h4 class="card-title">Tài khoản cấp ${user.role}</h4>
+            <p><b>Username:</b> ${user.username} </p>
+            <p class="card-text"><b>Email:</b> ${user.email} </p>
+            <p class="card-text"><b>Password:</b> ${user.password} </p>
+          `;
+          document.getElementById("listOfAccounts").appendChild(divElement);
+        });
+
+        document.getElementById("login-button").addEventListener("click", (e) => {
+          e.preventDefault();
+          const usernameOrEmail = document.getElementById("usernameOrEmail").value;
+          const password = document.getElementById("password").value;
+
+          let currentUser = users.filter((user) => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password);
+          if (currentUser.length > 0) {
+            currentUser = currentUser[0];
+            if (currentUser.role === "SO") {
+              console.log(currentUser);
+              window.location.href = './So/quan-ly-tai-khoan.html'
+            } else if (currentUser.role === "PHUONG") {
+              window.location.href = './CanBoPhuong/index.html'
+            } else if (currentUser.role === "QUAN") {
+              window.location.href = './CanBoQuan/index.html'
+            }
+          }
+        })
+    </script>
+    
 
   </body>
+
 
   <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

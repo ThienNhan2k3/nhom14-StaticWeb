@@ -39,9 +39,9 @@
                 <img src="../image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top " style="vertical-align:middle;">
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><button class="dropdown-item" type="button">Chỉnh sửa thông tin</button></li>
-                <li><button class="dropdown-item" type="button">Đổi mật khẩu</button></li>
-                <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
+                <li><a href="./cap-nhat-tt.html" class="dropdown-item" >Chỉnh sửa thông tin</a></li>
+                <li><a href="./cap-nhat-mk.html" class="dropdown-item" >Đổi mật khẩu</a></li>
+                <li><a href="#" class="dropdown-item" >Đăng xuất</a></li>
               </ul>
             </div>
           </div>
@@ -60,7 +60,7 @@
         </li>
         <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
           <img src="../image/acceptReports.png" alt="" class="img-fluid mx-2">
-          <a href="./xet-duyet-yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link ">Xét duyệt yêu cầu đặt quảng cáo</a>
+          <a href="./yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link ">Xét duyệt yêu cầu đặt quảng cáo</a>
         </li>
         <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
           <img src="../image/report.png" alt="" class="img-fluid mx-2">
@@ -119,7 +119,7 @@
             <td>Hồ Chí Minh</td>
             <td>Quận</td>
             <td class="function-icons text-center">
-              <i class="fas fa-pen" style="color: #f29d38;"></i>
+              <i class="fas fa-pen" style="color: #f29d38;" data-bs-toggle="modal" data-bs-target="#editModal"></i>
               <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
@@ -134,7 +134,7 @@
             <td>Hồ Chí Minh</td>
             <td>Quận</td>
             <td class="function-icons text-center">
-              <i class="fas fa-pen" style="color: #f29d38;"></i>
+              <i class="fas fa-pen" style="color: #f29d38;" data-bs-toggle="modal" data-bs-target="#editModal"></i>
               <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
@@ -149,7 +149,7 @@
             <td>Hồ Chí Minh</td>
             <td>Quận</td>
             <td class="function-icons text-center">
-              <i class="fas fa-pen" style="color: #f29d38;"></i>
+              <i class="fas fa-pen" style="color: #f29d38;" data-bs-toggle="modal" data-bs-target="#editModal"></i>
               <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
@@ -164,25 +164,8 @@
             <td>Hồ Chí Minh</td>
             <td>Quận</td>
             <td class="function-icons text-center">
-              <i class="fas fa-pen" style="color: #f29d38;"></i>
+              <i class="fas fa-pen" style="color: #f29d38;" data-bs-toggle="modal" data-bs-target="#editModal"></i>
               <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
-            </td>
-          </tr>
-          <tr>
-            <td scope="col">
-              <input type="checkbox" name="userId" id="userId" value="2">
-            </td>
-            <td>Nguyễn Thiện Nhân</td>
-            <td>ntnhan21@fitus.edu.vn</td>
-            <td>15</td>
-            <td>Tân Bình</td>
-            <td>Hồ Chí Minh</td>
-            <td>Quận</td>
-            <td class="function-icons text-center">
-              <i class="fas fa-pen" style="color: #f29d38;"></i>
-              <label for="">
-                <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
-              </label>
             </td>
           </tr>
           <tr>
@@ -196,7 +179,22 @@
             <td>Hồ Chí Minh</td>
             <td>Quận</td>
             <td class="function-icons text-center">
-              <i class="fas fa-pen" style="color: #f29d38;"></i>
+              <i class="fas fa-pen" style="color: #f29d38;" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+              <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+            </td>
+          </tr>
+          <tr>
+            <td scope="col">
+              <input type="checkbox" name="allAccounts" class="checkbox-items">
+            </td>
+            <td>Nguyễn Thiện Nhân</td>
+            <td>ntnhan21@fitus.edu.vn</td>
+            <td>15</td>
+            <td>Tân Bình</td>
+            <td>Hồ Chí Minh</td>
+            <td>Quận</td>
+            <td class="function-icons text-center">
+              <i class="fas fa-pen" style="color: #f29d38;" data-bs-toggle="modal" data-bs-target="#editModal"></i>
               <i class="fas fa-trash" style="color: #EB3223;" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
             </td>
           </tr>
@@ -239,7 +237,7 @@
           <!-- Modal footer -->
           <div class="modal-footer">
             <button type="button" class="btn gray-button" data-bs-dismiss="modal">Hủy bỏ</button>
-            <button class="btn red-button">Xóa</button>
+            <button class="btn red-button" id="confirm-delete-button" data-bs-dismiss="modal">Xóa</button>
           </div>
 
         </div>
@@ -289,8 +287,8 @@
                   <label for="confirmPassword" class="mb-2">Xác nhận mật khẩu</label>
                 </div>
                 <div class="row fw-semibold fs-4 mb-2">Phân công khu vực quản lý</div>
-                <div class="row gx-5">
-                  <div class="col col-4">
+                <div class="row g-md-3 g-2">
+                  <div class="col-6 col-md-4">
                     <select name="ward" class="form-select" required>
                       <option value="">Loại tài khoản</option>
                       <option value="1">Phường</option>
@@ -298,7 +296,7 @@
                       <option value="3">Sở</option>
                     </select>
                   </div>
-                  <div class="col col-4">
+                  <div class="col-6 col-md-4">
                     <select name="ward" class="form-select" required>
                       <option value="">Phường</option>
                       <option value="1">1</option>
@@ -306,7 +304,7 @@
                       <option value="3">3</option>
                     </select>
                   </div>
-                  <div class="col col-4">
+                  <div class="col-6 col-md-4">
                     <select name="district" class="form-select" required>
                       <option value="">Quận</option>
                       <option value="1">1</option>
@@ -324,26 +322,54 @@
       </div>
     </div>
 
-    <!-- The Update Modal -->
-    <div class="modal" id="deleteModal">
+    <!-- The Edit Modal -->
+    <div class="modal" id="editModal">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Xóa tài khoản</h4>
+            <h4 class="modal-title">Phân khu vực quản lý</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
           <!-- Modal body -->
-          <div class="modal-body">
-            Bạn có chắc chắn rằng bạn muốn xóa tài khoản này không ?
+          <div class="modal-body p-2">
+            <form action="#">
+              <fieldset class="container">
+                <div class="row g-2 g-md-3">
+                  <div class="col-6 col-md-4">
+                    <select name="ward" class="form-select" required>
+                      <option value="">Loại tài khoản</option>
+                      <option value="1">Phường</option>
+                      <option value="2">Quận</option>
+                      <option value="3">Sở</option>
+                    </select>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <select name="ward" class="form-select" required>
+                      <option value="">Phường</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <select name="district" class="form-select" required>
+                      <option value="">Quận</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+              </fieldset>
+            </form>
           </div>
 
           <!-- Modal footer -->
           <div class="modal-footer" style="background-color: #C4D4D6;">
             <button type="button" class="btn gray-button" data-bs-dismiss="modal">Hủy bỏ</button>
-            <button class="btn red-button">Xóa</button>
+            <button class="btn btn-success" data-bs-dismiss="modal" id="confirm-edit-button">Cập nhật</button>
           </div>
 
         </div>
@@ -395,9 +421,42 @@
   </footer>
 
   <script>
+
+    function selectAllCheckboxItems(status) {
+      document.querySelectorAll(".checkbox-items").forEach((item) => item.checked = status)
+
+    }
+    
     document.querySelector("#allAccounts").addEventListener("click", (e) => {
-      document.querySelectorAll(".checkbox-itemss").forEach((item) => item.checked = true)
+      selectAllCheckboxItems(document.querySelector("#allAccounts").checked)
+    });
+
+    document.querySelectorAll(".fa-trash").forEach(item => {
+      item.addEventListener("click", (e) => {
+        const inputElement = e.target.parentElement.parentElement.firstElementChild.firstElementChild; 
+        inputElement.checked = true;
+      })
     })
+
+    document.querySelectorAll(".fa-pen").forEach(item => {
+      item.addEventListener("click", (e) => {
+        selectAllCheckboxItems(false);
+        document.querySelector("#allAccounts").checked = false;
+        const inputElement = e.target.parentElement.parentElement.firstElementChild.firstElementChild; 
+        inputElement.checked = true;
+      })
+    })
+
+    document.getElementById("confirm-delete-button").addEventListener("click", () => {
+      selectAllCheckboxItems(false);
+      document.querySelector("#allAccounts").checked = false;
+    })
+
+    document.getElementById("confirm-edit-button").addEventListener("click", () => {
+      selectAllCheckboxItems(false);
+      document.querySelector("#allAccounts").checked = false;
+    })
+
   </script>
 
   </body>

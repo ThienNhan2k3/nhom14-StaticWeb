@@ -45,9 +45,9 @@
                 <img src="../image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top " style="vertical-align:middle;">
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><button class="dropdown-item" type="button">Chỉnh sửa thông tin</button></li>
-                <li><button class="dropdown-item" type="button">Đổi mật khẩu</button></li>
-                <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
+                <li><a href="./cap-nhat-tt.html" class="dropdown-item" >Chỉnh sửa thông tin</a></li>
+                <li><a href="./cap-nhat-mk.html" class="dropdown-item" >Đổi mật khẩu</a></li>
+                <li><a href="#" class="dropdown-item" >Đăng xuất</a></li>
               </ul>
             </div>
           </div>
@@ -66,7 +66,7 @@
         </li>
         <li class="nav-item w-100 d-flex flex-row align-items-center my-1 active">
           <img src="../image/acceptReports.png" alt="" class="img-fluid mx-2">
-          <a href="./xet-duyet-yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link active">Xét duyệt yêu cầu đặt quảng cáo</a>
+          <a href="./yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link active">Xét duyệt yêu cầu đặt quảng cáo</a>
         </li>
         <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
           <img src="../image/report.png" alt="" class="img-fluid mx-2">
@@ -83,81 +83,96 @@
       </ul>
     </nav>
   <!-- Main content -->
-  <main class="dynamic-container mb-5">
-    <div class="row table-container border border-2 rounded-3 mt-5">
-      <h2 class="table-header">Danh sách báo cáo</h2>
+  <main class="dynamic-container mb-5 container-fluid">
+    <div class="row w-75 mt-4 justify-content-end">
+      <div class="col-lg-2 col-sm-4 col-6">
+        <select name="ward" class="form-select" required>
+          <option value="">Phường</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="col-lg-2 col-sm-4 col-6">
+        <select name="district" class="form-select" required>
+          <option value="">Quận</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+    <div class="row table-container border border-2 rounded-3 mt-3">
+      <h2 class="table-header">Yêu cầu cấp phép quảng cáo</h2>
       <table class="table-body table table-striped table-responsive mb-0">
         <thead>
           <tr class="align-top">
-            <th scope="col align-top">Loại báo cáo</th>
-            <th scope="col">Tên người gửi</th>
-            <th scope="col">Email</th>
-            <th scope="col">Số điện thoại</th>
-            <th scope="col" colspan="2">Địa chỉ báo cáo</th>
-            <th scope="col" colspan="2">Nội dung báo cáo</th>
+            <th scope="col-2 align-top">Bảng quảng cáo</th>
+            <th scope="col-4">Điểm đặt</th>
+            <th scope="col-2">Nội dung</th>
+            <th scope="col">Công ty</th>
+            <th scope="col">Bắt đầu</th>
+            <th scope="col">kết thúc</th>
             <th scope="col" style="text-align: center;">Chi tiết</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Tố giác sai phạm</td>
-            <td>Nguyễn Thiện Nhân</td>
-            <td>ntnhan21@fitus.edu.vn</td>
-            <td>0123456789</td>
-            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
-            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
+            <td>Trụ treo băng rôn ngang,</td>
+            <td>227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td>Cổ động chính trị</td>
+            <td>US</td>
+            <td>21/10/2023</td>
+            <td>21/10/2024</td>
             <td class="text-center">
-                <i class="fas fa-info-circle text-primary"></i>
+              <a href="./xet-duyet-yeu-cau-cap-phep-qc.html"><i class="fas fa-info-circle text-primary"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Trụ treo băng rôn ngang,</td>
+            <td>227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td>Cổ động chính trị</td>
+            <td>US</td>
+            <td>21/10/2023</td>
+            <td>21/10/2024</td>
+            <td class="text-center">
+              <a href="./xet-duyet-yeu-cau-cap-phep-qc.html"><i class="fas fa-info-circle text-primary"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Trụ treo băng rôn ngang,</td>
+            <td>227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td>Cổ động chính trị</td>
+            <td>US</td>
+            <td>21/10/2023</td>
+            <td>21/10/2024</td>
+            <td class="text-center">
+              <a href="./xet-duyet-yeu-cau-cap-phep-qc.html"><i class="fas fa-info-circle text-primary"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Trụ treo băng rôn ngang,</td>
+            <td>227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td>Cổ động chính trị</td>
+            <td>US</td>
+            <td>21/10/2023</td>
+            <td>21/10/2024</td>
+            <td class="text-center">
+              <a href="./xet-duyet-yeu-cau-cap-phep-qc.html"><i class="fas fa-info-circle text-primary"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Trụ treo băng rôn ngang,</td>
+            <td>227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
+            <td>Cổ động chính trị</td>
+            <td>US</td>
+            <td>21/10/2023</td>
+            <td>21/10/2024</td>
+            <td class="text-center">
+              <a href="./xet-duyet-yeu-cau-cap-phep-qc.html"><i class="fas fa-info-circle text-primary"></i></a>
             </td>
           </tr>
 
-          <tr>
-            <td>Tố giác sai phạm</td>
-            <td>Nguyễn Thiện Nhân</td>
-            <td>ntnhan21@fitus.edu.vn</td>
-            <td>0123456789</td>
-            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
-            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
-            <td class="text-center">
-                <i class="fas fa-info-circle text-primary"></i>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Tố giác sai phạm</td>
-            <td>Nguyễn Thiện Nhân</td>
-            <td>ntnhan21@fitus.edu.vn</td>
-            <td>0123456789</td>
-            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
-            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
-            <td class="text-center">
-                <i class="fas fa-info-circle text-primary"></i>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Tố giác sai phạm</td>
-            <td>Nguyễn Thiện Nhân</td>
-            <td>ntnhan21@fitus.edu.vn</td>
-            <td>0123456789</td>
-            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
-            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
-            <td class="text-center">
-                <i class="fas fa-info-circle text-primary"></i>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Tố giác sai phạm</td>
-            <td>Nguyễn Thiện Nhân</td>
-            <td>ntnhan21@fitus.edu.vn</td>
-            <td>0123456789</td>
-            <td colspan="2">227 Đ. Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh</td>
-            <td colspan="2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio possimus voluptatem provident consectetur dolorem nihil,...</td>
-            <td class="text-center">
-                <i class="fas fa-info-circle text-primary"></i>
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>

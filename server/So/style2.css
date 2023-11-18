@@ -355,3 +355,55 @@ main {
 .btn-success {
   border: none;
 }
+
+.nav-item img {
+  width: 40px;
+  height: 40px;
+}
+/* Hamburger menu animation*/
+
+.navbar-toggler {
+  position: relative;
+  height: 36px;
+  width: 36px;
+  padding: 0;
+  border: none;
+} 
+.navbar-toggler span {
+  background-color: #fff;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+
+.navbar-toggler span:nth-child(1) {
+  transform: translate(-50%, calc(-50% - 10px));
+}
+
+.navbar-toggler span:nth-child(3) {
+  transform: translate(-50%, calc(-50% + 10px));
+}
+
+.navbar-toggler.active span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.navbar-toggler.active span:nth-child(2) {
+  display: none;
+}
+
+.navbar-toggler.active span:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@media only screen and (max-width: 610px) {
+  main.dynamic-container {
+      margin-top: 61px;
+  }
+}

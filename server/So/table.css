@@ -81,3 +81,9 @@ main.dynamic-container {
 .function-icons i {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 992px)  {
+    .table-container {
+        width: 100%;
+    }
+}

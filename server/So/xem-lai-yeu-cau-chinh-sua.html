@@ -15,32 +15,32 @@
   <!-- Header -->
   <header>
     <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
-      <div class="container-fluid px-5">
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="menu-btn">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Brand -->
-        <div class="navbar-brand d-flex flex-row align-items-center">
-          <img src="./image/logo.png" alt="Logo" width="40" height="35" class="d-inline-block align-text-top mx-2">
-          <div class=" align-self-center brand">Sở Văn hóa và Thể thao TP.Hồ Chí Minh</div>
-        </div>
-        <div class="text-center">
-
-          <button type="button" class="btn  " data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="./image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top "
-              style="vertical-align:middle;">
+        <div class="container-fluid px-sm-3 px-md-5 px-2 justify-content-between">
+            <!-- Toggle button -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"  data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="menu-btn" >
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a href="./cap-nhat-tt.html" class="dropdown-item" type="button">Chỉnh sửa thông tin</a></li>
-            <li><a href="./cap-nhat-mk.html" class="dropdown-item" type="button">Đổi mật khẩu</a></li>
-            <li><button class="dropdown-item" type="button">Đăng xuất</button></li>
-          </ul>
+
+          <!-- Brand -->
+          <div class="navbar-brand d-flex flex-row align-items-center m-0" >
+            <img src="../image/logo.png" alt="Logo" width="40" height="35" class="d-inline-block align-text-top" >
+            <div class="align-self-center ms-md-3 d-none d-sm-block fs-5" >Sở Văn hóa và Thể thao TP.Hồ Chí Minh</div>
+          </div>
+          <div class="text-center">
+
+            <button type="button" class="btn p-0 m-0" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../image/user.png" alt="Logo" width="45" height="40" class="d-inline-block align-text-top " style="vertical-align:middle;">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a href="./cap-nhat-tt.html" class="dropdown-item" >Chỉnh sửa thông tin</a></li>
+              <li><a href="./cap-nhat-mk.html" class="dropdown-item" >Đổi mật khẩu</a></li>
+              <li><a href="#" class="dropdown-item" >Đăng xuất</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
   </header>
   <!-- Navbar content -->
   <nav class="sidenavbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
@@ -55,7 +55,7 @@
       </li>
       <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
         <img src="../image/acceptReports.png" alt="" class="img-fluid mx-2">
-        <a href="./xet-duyet-yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link ">Xét duyệt yêu cầu đặt quảng cáo</a>
+        <a href="./yeu-cau-cap-phep-qc.html" class="nav-link sidenav-link ">Xét duyệt yêu cầu đặt quảng cáo</a>
       </li>
       <li class="nav-item w-100 d-flex flex-row align-items-center my-1">
         <img src="../image/report.png" alt="" class="img-fluid mx-2">
@@ -308,6 +308,14 @@
     // Show the reasonDeny modal
     reasonDenyModal.show();
   });
+</script>
+
+<script>
+  const navBarToggler = document.querySelector(".navbar-toggler");
+    navBarToggler.addEventListener("click", (e) => {
+    navBarToggler.classList.toggle("active");
+  });
+
 </script>
 
 
